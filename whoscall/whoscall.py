@@ -1,5 +1,5 @@
 # get the coporates' name via their phone number since it is hard to know who they are 
-# just an initail test here, will do  API like version in the future 
+# just an initial test here, will do  API like version in the future 
 
 
 
