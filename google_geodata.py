@@ -1,6 +1,8 @@
 '''
 ref :  https://pypi.python.org/pypi/geocoder
 ref :  https://pypi.python.org/pypi/py-translate
+ref :  https://developers.google.com/maps/documentation/geocoding/get-api-key
+ref :  https://developers.google.com/maps/documentation/geocoding/start
 '''
 
 from IPython.display import display, HTML
