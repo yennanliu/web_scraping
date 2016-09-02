@@ -16,7 +16,7 @@ dd.columns=['address','group']
 dd.to_csv('test0701.csv',encoding='utf-8')
 
 
-google_api = 'AIzaSyBDrQZBasCaGP_j22GGopF-S4EPnINvmh8'
+google_api = 'your_google_api'
 address='taipei 101'
 url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=25.0330,121.5654&radius=50000&keyword={}&key={}'.format(address,google_api)
 
