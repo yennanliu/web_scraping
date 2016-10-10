@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block styles %}
+    {{ super() }}
+    <style type="text/css">
+        .badge {
+            color: #fff;
+            background-color: #1e90ff;
+        }
+    </style>
+{% endblock %}
+
+
+{% block title %}Message Board{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h1>Content</h1>
+</div>
+
+
+<div class="contianer-fluid">
+    <ul class="list-group">
+    {% for item in array %}
+      <li class="list-group-item">  {{item.message}}
+        <span class="badge">{{item.username}}</span>
+      </li>
+    {% endfor %}
+    </ul>
+</div>
+
+<!-- {% for i in array %}
+  <h3> {{i.username}} </h3>
+  <p>  {{i.message}} </p>
+{% endfor %} -->
+
+{{ wtf.quick_form(form) }}
+{% endblock %}

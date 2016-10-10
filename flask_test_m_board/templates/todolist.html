@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block page_content %}
+
+
+<div class="container">
+    <div class="jumbotron">
+      <div>
+          <h2>Todo List</h2>
+              <table class="table table-condensed">
+                  <thead>
+                      <tr>
+                          <th>content</th>
+                          <th>status</th>
+                          <th>time</th>
+                          <th>operate</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                    {% for todo in array %}
+                          <tr>
+                              <td>{{ todo.mission}}</td>
+                              <td>
+                                {% if todo.status == 1  %}
+                                  已完成
+                                {% else %}
+                                  未完成
+                                {% endif %}
+                              </td>
+                              <td style="width : 240px;">{{moment(todo.current_time).format('LLL')}}</td>
+                              {% if todo.status == 1 %}
+                                   <td style="width : 70px;"><a href="/undone/{{ todo.id }}" class="btn btn-primary">Undone</a></td> 
+                              {% else %}
+                                  <td style="width : 70px;"><a href="/done/{{ todo.id }}" class="btn btn-primary">Done</a></td>
+                              {% endif %}
+
+                              <td><a href="/delete/{{ todo.id }}" class="btn btn-danger">Delete</a></td>
+                          </tr>
+                      {% endfor %}
+                  </tbody>
+              </table>
+              {{ wtf.quick_form(form) }}
+        </div>
+    </div> 
+</div>
+
+<footer class="footer">
+  <p>&copy; Jimmy66</p>
+</footer>
+
+
+
+{% endblock %}
