@@ -11,6 +11,14 @@ import urllib, json
 import pandas as pd, numpy as np
 import sys ,re, lxml
 
+# parse parameter from command line to python 
+import argparse
+parser = argparse.ArgumentParser()
+parser.add_argument("echo")
+args = parser.parse_args()
+print(args.echo)
+print ('===========')
+
 
 
 # help function 
@@ -18,11 +26,14 @@ import sys ,re, lxml
 def url_fix(x):
     return 'http://www.ipeen.com.tw' + x
 
+def parse_area(x):
+    return x[3:6]
+
 
 
 def grab_raw():
     output = [[] for k in range(4)]
-    for page in range(1,20):
+    for page in range(1,10):
 	    #url ='http://www.ipeen.com.tw/search/all/000/0-100-0-0/%E4%B8%AD%E5%BC%8F/?p={}&adkw=%E5%8F%B0%E5%8C%97'.format(page)
 	    #print (url)
 	    url_='http://www.ipeen.com.tw/search/all/000/0-100-0-0/?adkw=%E5%A4%A7%E5%AE%89%E5%8D%80&p={}'
@@ -56,6 +67,7 @@ def grab_df():
 	df = pd.DataFrame(output).T
 	df.columns = ['name', 'address', 'url','style']
 	df.url = df.url.apply(lambda x :url_fix(x) )
+	df['area'] = df['address'].apply(lambda x :parse_area(x) )
 	print (df.head())
 	df.to_csv('ipeen_restaurant_0617.csv')
 	return df 
