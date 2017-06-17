@@ -9,7 +9,7 @@ import requests
 from bs4 import BeautifulSoup
 import urllib, json
 import pandas as pd, numpy as np
-import sys ,re, lxml
+import sys ,re, lxml,time
 
 # transform chinese into web url in python 3 
 # https://stackoverflow.com/questions/1695183/how-to-percent-encode-url-parameters-in-python/13625238#13625238
@@ -64,6 +64,7 @@ def grab_raw(area):
 	        
 	        else:
 	            pass
+	    time.sleep(1)
     print (output)
     return output
 
@@ -78,8 +79,8 @@ def grab_df():
 	df.to_csv('ipeen_restaurant_0617.csv')
 	return df 
 
-
-grab_df()
+if __name__ == '__main__':
+	grab_df()
 
 
 
