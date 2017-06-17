@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-
+from __future__ import print_function
+from __future__ import unicode_literals
 import urllib 
 #import simplejson 
 from urllib.request import urlopen
@@ -11,6 +12,7 @@ import pandas as pd, numpy as np
 import sys ,re, lxml
 
 
+
 # help function 
 
 def url_fix(x):
@@ -20,10 +22,10 @@ def url_fix(x):
 
 def grab_raw():
     output = [[] for k in range(4)]
-    for page in range(1,5):
+    for page in range(1,20):
 	    #url ='http://www.ipeen.com.tw/search/all/000/0-100-0-0/%E4%B8%AD%E5%BC%8F/?p={}&adkw=%E5%8F%B0%E5%8C%97'.format(page)
 	    #print (url)
-	    url_='http://www.ipeen.com.tw/search/all/000/0-100-0-0/?adkw=%E5%A4%A7%E5%AE%89%E5%8D%80&bar={}'
+	    url_='http://www.ipeen.com.tw/search/all/000/0-100-0-0/?adkw=%E5%A4%A7%E5%AE%89%E5%8D%80&p={}'
 	    url_=url_.format(page)
 	    opener=urllib.request.build_opener()
 	    opener.addheaders = [('User-agent', 'Mozilla/5.0')]
