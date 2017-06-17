@@ -11,12 +11,18 @@ import urllib, json
 import pandas as pd, numpy as np
 import sys ,re, lxml
 
+# transform chinese into web url in python 3 
+# https://stackoverflow.com/questions/1695183/how-to-percent-encode-url-parameters-in-python/13625238#13625238
+from urllib.parse import quote
+
 # parse parameter from command line to python 
 import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument("echo")
 args = parser.parse_args()
 print(args.echo)
+print (quote(args.echo))
+area = quote(args.echo)
 print ('===========')
 
 
@@ -31,13 +37,13 @@ def parse_area(x):
 
 
 
-def grab_raw():
+def grab_raw(area):
     output = [[] for k in range(4)]
-    for page in range(1,10):
-	    #url ='http://www.ipeen.com.tw/search/all/000/0-100-0-0/%E4%B8%AD%E5%BC%8F/?p={}&adkw=%E5%8F%B0%E5%8C%97'.format(page)
-	    #print (url)
-	    url_='http://www.ipeen.com.tw/search/all/000/0-100-0-0/?adkw=%E5%A4%A7%E5%AE%89%E5%8D%80&p={}'
-	    url_=url_.format(page)
+    for page in range(1,2):
+	    #url_='http://www.ipeen.com.tw/search/all/000/0-100-0-0/?adkw=%E5%A4%A7%E5%AE%89%E5%8D%80&p={}'
+	    url_='http://www.ipeen.com.tw/search/all/000/0-100-0-0/?adkw={}&p={}'
+	    url_=url_.format(area,page)
+	    print (url_)
 	    opener=urllib.request.build_opener()
 	    opener.addheaders = [('User-agent', 'Mozilla/5.0')]
 	    page = opener.open(url_)
@@ -63,7 +69,7 @@ def grab_raw():
 
 def grab_df():
 
-	output = grab_raw()
+	output = grab_raw(area)
 	df = pd.DataFrame(output).T
 	df.columns = ['name', 'address', 'url','style']
 	df.url = df.url.apply(lambda x :url_fix(x) )
