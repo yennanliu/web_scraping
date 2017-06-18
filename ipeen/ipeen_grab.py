@@ -9,7 +9,7 @@ import requests
 from bs4 import BeautifulSoup
 import urllib, json
 import pandas as pd, numpy as np
-import sys ,re, lxml,time
+import sys ,re,time
 
 # transform chinese into web url in python 3 
 # https://stackoverflow.com/questions/1695183/how-to-percent-encode-url-parameters-in-python/13625238#13625238
