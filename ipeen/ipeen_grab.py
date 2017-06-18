@@ -39,13 +39,16 @@ def url_fix(x):
     return 'http://www.ipeen.com.tw' + x
 
 def parse_area(x):
-    return x[3:6]
+	if x:
+		return x[3:6]
+	else:
+		return ''
 
 
 
 def grab_raw(area):
     output = [[] for k in range(4)]
-    for page in range(1,3):
+    for page in range(0,171):
 	    #url_='http://www.ipeen.com.tw/search/all/000/0-100-0-0/?adkw=%E5%A4%A7%E5%AE%89%E5%8D%80&p={}'
 	    # 0-100-0-0 : all , 1-100-0-0 : 美食 ..
 	    url_='http://www.ipeen.com.tw/search/all/000/1-100-0-0/?&baragain=1&adkw={}&p={}'
@@ -76,14 +79,14 @@ def grab_raw(area):
     return output
 
 def grab_df():
-
+	
 	output = grab_raw(area)
 	df = pd.DataFrame(output).T
 	df.columns = ['name', 'address', 'url','style']
 	df.url = df.url.apply(lambda x :url_fix(x) )
 	df['area'] = df['address'].apply(lambda x :parse_area(x) )
 	print (df.head())
-	df.to_csv('ipeen_restaurant_5.csv')
+	df.to_csv('ipeen_restaurant_板橋.csv')
 	return df 
 
 if __name__ == '__main__':
