@@ -18,11 +18,17 @@ from urllib.parse import quote
 # parse parameter from command line to python 
 import argparse
 parser = argparse.ArgumentParser()
-parser.add_argument("echo")
+parser.add_argument('nums', nargs='*')
+#parser.add_argument("echo")
 args = parser.parse_args()
-print(args.echo)
-print (quote(args.echo))
-area = quote(args.echo)
+#print(args.echo)
+print(args.nums)
+#print (quote(args.echo))
+#area = quote(args.echo)
+search_string=" ".join(str(x) for x in args.nums)
+print (search_string)
+area = quote(search_string)
+
 print ('===========')
 
 
@@ -39,9 +45,10 @@ def parse_area(x):
 
 def grab_raw(area):
     output = [[] for k in range(4)]
-    for page in range(1,2):
+    for page in range(1,3):
 	    #url_='http://www.ipeen.com.tw/search/all/000/0-100-0-0/?adkw=%E5%A4%A7%E5%AE%89%E5%8D%80&p={}'
-	    url_='http://www.ipeen.com.tw/search/all/000/0-100-0-0/?adkw={}&p={}'
+	    # 0-100-0-0 : all , 1-100-0-0 : 美食 ..
+	    url_='http://www.ipeen.com.tw/search/all/000/1-100-0-0/?&baragain=1&adkw={}&p={}'
 	    url_=url_.format(area,page)
 	    print (url_)
 	    opener=urllib.request.build_opener()
@@ -64,7 +71,7 @@ def grab_raw(area):
 	        
 	        else:
 	            pass
-	    time.sleep(1)
+	    #time.sleep(1)
     print (output)
     return output
 
@@ -76,7 +83,7 @@ def grab_df():
 	df.url = df.url.apply(lambda x :url_fix(x) )
 	df['area'] = df['address'].apply(lambda x :parse_area(x) )
 	print (df.head())
-	df.to_csv('ipeen_restaurant_0617.csv')
+	df.to_csv('ipeen_restaurant_5.csv')
 	return df 
 
 if __name__ == '__main__':
