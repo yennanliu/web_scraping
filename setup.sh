@@ -17,7 +17,7 @@ conda create --name $env_name python=3 &&
 
 echo 'start install env.... '
 
-source activate $env_name &&  pip install pandas urllib beautifulsoup4
+source activate $env_name &&  pip install pandas urllib3 beautifulsoup4
 
 echo 'all env library installed successfully ! '
 
