@@ -5,25 +5,25 @@ from data2db import *
 
 
 def get_values():
-	sql ="""select 
-	avg(temp_max) as avg_max_temp,
-	avg(temp_min) as avg_min_temp,
-	(select ((avg(temp_max)+avg(temp_min)))/2 from weather_data ) as avg_all_temp
-	from weather_data
+	sql ="""SELECT avg(temp_max) AS avg_max_temp,
+       avg(temp_min) AS avg_min_temp,
+
+  (SELECT ((avg(temp_max)+avg(temp_min)))/2
+   FROM weather_data) AS avg_all_temp
+FROM weather_data
+WHERE TYPE = 'Actual:'
 
 	"""
 
 	sql2 ="""
-	select 
-	date(CET) as best_swim_date,
-	(temp_min+ temp_min)/2 as avg_day_temp
-	from 
-	weather_data
-	where avg_day_temp  = ( 
-	select 
-	max((temp_min+ temp_min)/2) as max_mean_temp
-	from weather_data ) 
-
+SELECT date(CET) AS best_swim_date,
+       (temp_min+ temp_min)/2 AS avg_day_temp
+FROM weather_data
+WHERE avg_day_temp =
+    (SELECT max((temp_min+ temp_min)/2) AS max_mean_temp
+     FROM weather_data
+     WHERE TYPE = 'Actual:')
+  AND TYPE = 'Actual:'
 
 	"""
 	print (sql)
