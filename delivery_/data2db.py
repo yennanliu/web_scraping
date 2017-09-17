@@ -3,6 +3,7 @@
 from scrap import *
 
 
+
 def get_data():
 	output = pd.DataFrame()
 	for month in range(1,13):
@@ -10,7 +11,6 @@ def get_data():
 		print (df)
 		output= output.append(df)
 	return output 
-
 
 
 def dump_db():
@@ -30,10 +30,39 @@ def update_db():
 	except:
 		print ('update DB failed')
 
-		
+
+#==============================
+
+
+class db_manipulation:
+	def __init__(self, *args, **kwargs):
+		self.df = get_data()
+		self.con  = 'sqlite:///weather.db'
+	def test(self):
+		print (self.con)
+
+	def dumb2db(self):
+		try:
+			self.df.to_sql('weather_data',if_exists='fail',con=self.con)
+			print ('dump to DB ok')
+		except:
+			print ('dump DB failed')
+
+	def update2db(self):
+		try:
+			df = self.df 
+			df.to_sql('weather_data',if_exists='append',con=self.con)
+			print ('update to DB ok')
+		except:
+			print ('dump DB failed')
+
+
+
 
 if __name__ == '__main__':
-	dump_db()
+	db_job = db_manipulation()
+	db_job.dumb2db()
+	#dump_db()
 
 
 
