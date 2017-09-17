@@ -5,7 +5,8 @@ from data2db import *
 
 
 def get_values():
-	sql ="""SELECT avg(temp_max) AS avg_max_temp,
+	sql ="""
+SELECT avg(temp_max) AS avg_max_temp,
        avg(temp_min) AS avg_min_temp,
 
   (SELECT ((avg(temp_max)+avg(temp_min)))/2
