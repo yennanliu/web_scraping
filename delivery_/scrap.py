@@ -1,6 +1,6 @@
 
-import numpy as np
 import pandas as pd
+import numpy as np 
 import datetime
 import urllib, json
 from bs4 import BeautifulSoup
@@ -48,13 +48,6 @@ def get_weather_data(year,month):
 	output_['CET'] = np.array(datetime_.CET)
 	print (output_)
 	return output_
-
-
-#if __name__ == '__main__':
-#	for month in range(1,13):
-#		get_weather_data('2014',month)
-
-
 
 
 

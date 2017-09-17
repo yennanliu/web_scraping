@@ -30,12 +30,12 @@ def update_db():
 	except:
 		print ('update DB failed')
 
+		
+
+if __name__ == '__main__':
+	dump_db()
 
 
-
-
-
-#dump_db()
 
 
 

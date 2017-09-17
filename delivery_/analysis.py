@@ -3,8 +3,13 @@ from data2db import *
 
 
 
-
 def get_values():
+
+	sql0="""
+SELECT *
+	FROM weather_data
+	LIMIT 10 ;
+	"""
 	sql ="""
 SELECT avg(temp_max) AS avg_max_temp,
        avg(temp_min) AS avg_min_temp,
@@ -27,6 +32,10 @@ WHERE avg_day_temp =
   AND TYPE = 'Actual:'
 
 	"""
+	print (sql0)
+	outcome0 = pd.read_sql(sql0, con ='sqlite:///weather.db' )
+	print (outcome0)
+	print ('-------------------------------')
 	print (sql)
 	outcome = pd.read_sql(sql, con ='sqlite:///weather.db' )
 	print (outcome)
@@ -35,8 +44,8 @@ WHERE avg_day_temp =
 	outcome2 = pd.read_sql(sql2, con ='sqlite:///weather.db' )
 	print (outcome2)
 
-
-get_values()
+if __name__ == '__main__':
+	get_values()
 
 
 
