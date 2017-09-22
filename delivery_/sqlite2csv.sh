@@ -29,7 +29,7 @@ read tablename
 
 echo 'extract' $dbname  with  $tablename 'to' $csvname
 
-sqlite3 -header -csv  $dbname.db "select * from weather_data ;" > $csvname.csv
+sqlite3 -header -csv  $dbname.db "select * from $tablename ;" > $csvname.csv
 
 
 
