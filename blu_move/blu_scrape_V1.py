@@ -1,5 +1,5 @@
 # credit : https://ianlondon.github.io/blog/web-scraping-discovering-hidden-apis/
-
+# scrape in public home page 
 
 #import library 
 from bs4 import BeautifulSoup
