@@ -53,7 +53,7 @@ def main():
 	                'end','end_block','end_reservation',
 	                'start','start_block','start_reservation']]
 	print (df_) 
-
+	df_.to_csv('blu_.csv')
    
     
 
