@@ -10,7 +10,9 @@ def get_json():
 	return blu_data
 
  
-def main():
+
+ 
+def main_():
 	blu_data = get_json()
 	# prepare data, parese needed columns 
 	# for loop
@@ -39,12 +41,13 @@ def main():
 				output[10].append(None)
 
 			else:
-				output[5].append(data_reserve[0]['end'])
-				output[6].append(data_reserve[0]['end_block'])
-				output[7].append(data_reserve[0]['end_reservation'])
-				output[8].append(data_reserve[0]['start'])
-				output[9].append(data_reserve[0]['start_block'])
-				output[10].append(data_reserve[0]['start_reservation'])
+				#pd.to_datetime(data_reserve[0]['end'], format='%d/%m/%y %H:%M:%S')
+				output[5].append(pd.to_datetime(data_reserve[0]['end'], format='%d/%m/%Y %H:%M:%S'))   
+				output[6].append(pd.to_datetime(data_reserve[0]['end_block'], format='%d/%m/%Y %H:%M:%S'))
+				output[7].append(pd.to_datetime(data_reserve[0]['end_reservation'], format='%d/%m/%y %H:%M:%S'))
+				output[8].append(pd.to_datetime(data_reserve[0]['start'], format='%d/%m/%Y %H:%M:%S'))
+				output[9].append(pd.to_datetime(data_reserve[0]['start_block'], format='%d/%m/%Y %H:%M:%S'))
+				output[10].append(pd.to_datetime(data_reserve[0]['start_reservation'], format='%d/%m/%y %H:%M:%S'))
 				#print (data_reserve)
 		        #print ('=====')
 		    	    
@@ -52,15 +55,13 @@ def main():
 	df_.columns = [['id','gpslat','gpslong','gps_timestamp','status',
 	                'end','end_block','end_reservation',
 	                'start','start_block','start_reservation']]
-	print (df_) 
 	df_.to_csv('blu_.csv')
-   
-    
-
+	print (df_) 
+	return df_
 
 
 if __name__ == '__main__':
-	main()
+	main_()
 
 
 
