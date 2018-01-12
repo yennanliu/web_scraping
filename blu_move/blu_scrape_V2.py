@@ -1,6 +1,14 @@
 import json
 import pandas as pd
 import sys ,re,time
+import os 
+# user defined function 
+from utility_data_IO import * 
+
+
+db_url = os.environ['db_url']
+print ('db_url : ' , db_url)
+
 
 
 def get_json():
@@ -12,7 +20,7 @@ def get_json():
  
 
  
-def main_():
+def main_(write_to_db=False):
 	blu_data = get_json()
 	# prepare data, parese needed columns 
 	# for loop
@@ -56,12 +64,19 @@ def main_():
 	                'end','end_block','end_reservation',
 	                'start','start_block','start_reservation']]
 	df_.to_csv('blu_.csv')
-	print (df_) 
+	print (df_)
+
+	if write_to_db == True:
+		print("insert to DB....")
+		write_data_to_db(df_,'blue_move',db_url)
+
 	return df_
 
 
+
+
 if __name__ == '__main__':
-	main_()
+	main_(write_to_db = True)
 
 
 
