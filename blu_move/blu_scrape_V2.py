@@ -60,15 +60,24 @@ def main_(write_to_db=False):
 		        #print ('=====')
 		    	    
 	df_ = pd.DataFrame(output).T
-	df_.columns = [['id','gpslat','gpslong','gps_timestamp','status',
-	                'end','end_block','end_reservation',
-	                'start','start_block','start_reservation']]
-	df_.to_csv('blu_.csv')
-	print (df_)
+	cols=['id', 'gpslat', 'gpslong', 'gps_timestamp', 'status', 'end',
+	'end_block', 'end_reservation', 'start', 'start_block',
+	'start_reservation']
+
+	df_.columns = [cols]
+	# hot fix here 
+	#df_ = df_.drop('Unnamed: 0', 1)
+	df_.to_csv('blu_.csv',index=False)
+	#print (df_)
 
 	if write_to_db == True:
 		print("insert to DB....")
-		write_data_to_db(df_,'blue_move',db_url)
+		print ('############')
+		print (df_)
+		print ('############')
+		# hot fix here 
+		df_2 = pd.read_csv('blu_.csv')
+		write_data_to_db(df_2,'blue_move',db_url)
 
 	return df_
 
