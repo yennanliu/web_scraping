@@ -5,7 +5,7 @@ import datetime
 import os
 
 
-european = timezone('Europe/Brussels')
+european = timezone('Europe/Madrid')
 now_tz = datetime.datetime.now(tz = european)
 now = now_tz.replace(tzinfo = None)
 now = now.replace(microsecond = 0)
