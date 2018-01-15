@@ -18,7 +18,7 @@ ORDER BY id,
          end_reservation
 
 
--- 1. utilization  
+-- 2. utilization   (day)
 -- get utilization per day 
 
 
@@ -39,6 +39,30 @@ SELECT booking.*,
 FROM booking
 INNER JOIN all_ ON booking.date = all_.date
 ORDER BY booking.date
+
+
+
+-- 3. utilization   (hour)
+-- get utilization per hour 
+
+
+WITH booking AS
+  (SELECT TO_TIMESTAMP(cast(start_reservation AS TEXT),'yyyy-mm-dd HH24') AS date,
+          count(DISTINCT id) AS booked_car
+   FROM <table_name>
+   GROUP BY 1),
+     all_ AS
+  (SELECT TO_TIMESTAMP(cast(date_of_insert AS TEXT),'yyyy-mm-dd HH24') AS date,
+          count(DISTINCT id) AS all_car
+   FROM <table_name>
+   GROUP BY 1)
+SELECT booking.*,
+       all_.all_car,
+       booking.booked_car::NUMERIC/all_.all_car::NUMERIC AS utilization
+FROM booking
+INNER JOIN all_ ON booking.date = all_.date
+ORDER BY booking.date
+
 
 
 
