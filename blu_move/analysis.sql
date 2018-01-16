@@ -65,4 +65,25 @@ ORDER BY booking.date
 
 
 
+-- 4. dev utilization   (hour)
+# hour of using / 24 hour for each car 
+
+
+WITH get_last_log AS
+  ( SELECT b.start_reservation,
+           b.end_reservation,
+           b.*,
+           ROW_NUMBER() OVER (PARTITION BY id,
+                                           date(date_of_insert)
+                              ORDER BY date_of_insert,
+                                       date(date_of_insert) DESC) AS row_id
+   FROM <table_name> b
+   WHERE start_reservation IS NOT NULL
+     AND end_reservation IS NOT NULL )
+SELECT *
+FROM get_last_log
+WHERE row_id = 1
+ORDER BY id
+
+
 
