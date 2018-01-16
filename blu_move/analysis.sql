@@ -70,20 +70,25 @@ ORDER BY booking.date
 
 
 WITH get_last_log AS
-  ( SELECT b.start_reservation,
-           b.end_reservation,
-           b.*,
-           ROW_NUMBER() OVER (PARTITION BY id,
-                                           date(date_of_insert)
-                              ORDER BY date_of_insert,
-                                       date(date_of_insert) DESC) AS row_id
+  (SELECT b.start_reservation AS start_reservation_,
+          b.end_reservation,
+          b.*,
+          ROW_NUMBER() OVER (PARTITION BY id,
+                                          date(date_of_insert)
+                             ORDER BY date(date_of_insert),
+                                      date_of_insert DESC) AS row_id,
+                            ROW_NUMBER() OVER (PARTITION BY id,
+                                                            start_reservation
+                                               ORDER BY date_of_insert DESC) AS row_id_
    FROM <table_name> b
    WHERE start_reservation IS NOT NULL
      AND end_reservation IS NOT NULL )
 SELECT *
 FROM get_last_log
 WHERE row_id = 1
-ORDER BY id
-
+  AND row_id_ = 1
+ORDER BY id,
+         start_reservation_,
+         row_id_
 
 
