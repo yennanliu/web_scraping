@@ -65,7 +65,7 @@ ORDER BY booking.date
 
 
 
--- 4. dev utilization   (hour)
+-- 4.  utilization  (using hour / 24 hour)
 ### fix the "duration across day problem"
 ### e.g. start : 2017-01-01 23:00, end : 2017-01-02 07:00 
 # hour of using / 24 hour for each car  (V1)
