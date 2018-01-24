@@ -25,7 +25,7 @@ def parse_swift_code(swift_url):
 
 def clean_df(df):
 	# drop any col, row with null value 
-	df_ = df.dropna()
+	#df_ = df.dropna()
 	df_ = df_[(df_.bank_name != 'SWIFT Code Databse') | 
 	          (df_.bank_name != 'Countries List') |
 	          (df_.bank_name != 'Home') |
@@ -38,38 +38,6 @@ def clean_df(df):
 
 
 # main scrape function 
-
-def main():
-	
-	url="http://www.swiftcodelist.com/banks/united-kingdom-1.html"
-	print (url)
-
-	opener=urllib.request.build_opener()
-	opener.addheaders = [('User-agent', 'Mozilla/5.0')]
-	page = opener.open(url)
-	soup = BeautifulSoup(page,"html.parser")
-
-	anchors = soup.find_all('a', {'href': True})
-	output = [[] for k in range(2)]
-
-	for k in anchors:
-	    if len(k.text) < 3:
-	        print (k.text)
-	        output[0].append(None)
-	        print (k['href'])
-	        output[1].append(k['href'])
-	        
-	    else:
-	        output[0].append(k.text)
-	        print (k.text)
-	        output[1].append(k['href'])
-	        print (k['href'])
-
-	df_ = pd.DataFrame(output).T
-	cols=['bank_name','url']
-	df_.columns = [cols]
-	print (df_)
-
 
 def main_():
 
@@ -106,7 +74,8 @@ def main_():
 	cols=['bank_name','url','swift_code']
 	df_.columns = [cols]
 	print (df_)
-	df_to_csv('UK_bank_swift_code_list.csv')
+	#df_ =clean_df(df_)
+	df_.to_csv('UK_bank_swift_code_list.csv')
 
 
 
