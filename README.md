@@ -39,6 +39,10 @@ $ source setup.sh
 1. Add utility scripts that can get XPATH of all objects in html
 2. workflow that automate whole processes
 3. job management 
+	- multiprocessing
+	- Asynchronous
+4. Scrapping tutorial 
+
 ```
 
 
