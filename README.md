@@ -8,10 +8,10 @@ Collection of scrappers for different applications
 
 ```
 ├── booking           : booking.com hotel scraping 
-├── carousell         : carousell scraping with product name  
+├── carousell         : carousell product scraping with names
 ├── eztable           : eztable restaurant scraping
-├── facebook_fan_page : fb fanspage scraping
-├── ipeen             : eztable restaurant scraping
+├── facebook_fan_page : fb fans page scraping
+├── ipeen             : ipeen restaurant scraping
 ├── spotify           : spoitify songs scraping
 
 other : dev 
@@ -37,8 +37,8 @@ $ source setup.sh
 ### Todo 
 ```
 1. Add utility scripts that can get XPATH of all objects in html
-2. workflow that automate whole processes
-3. job management 
+2. Workflow that automate whole processes
+3. Job management 
 	- multiprocessing
 	- Asynchronous
 4. Scrapping tutorial 
