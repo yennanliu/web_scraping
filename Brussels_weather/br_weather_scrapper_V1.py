@@ -15,11 +15,26 @@ def main():
 	page = opener.open(url_new)
 	soup = BeautifulSoup(page)
 	trs = soup.find_all('td', attrs={'class': 'indent'})
+	col=[]
+	val=[]
 	for tr in trs:
 		tds = tr.find_next_siblings("td") # you get list
 		print (tr.text )
+		col.append(tr.text)
 		print (tds[0].text)
-	#eturn tds 
+		val.append(tds[0].text.strip('\n')
+			.replace('\xa0','')
+			.replace('°C','')
+			.replace('mm','')
+			.replace('hPa','')
+			.replace('km/h\n ()','')
+			.replace('km/h','')
+			.replace('kilometers',''))
+
+	df = pd.DataFrame({'col':col,'val':val}).set_index('col').T.reset_index()
+	del df['index']
+	print (df)
+	return df 
 
 
 
