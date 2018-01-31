@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 
 
 def main():
-	url_new = 'https://www.wunderground.com/history/airport/EDDT/2017/1/18/DailyHistory.html'
+	url_new = 'https://www.wunderground.com/history/airport/EBFS/2017/11/30/DailyHistory.html?req_city=&req_state=&req_statename=&reqdb.zip=&reqdb.magic=&reqdb.wmo='
 	print (url_new)
 
 
