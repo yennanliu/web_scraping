@@ -52,11 +52,11 @@ def main():
         output = output.append(df)
     output = output.reset_index()
     del output['index']
-    output.columns = ['mean_temperature', 'max_temperature', 'min_temperature',
-       'heating_degree_days', 'dew_point', 'avg_humidity',
-       'max_humidity', 'min_umidity', 'precipitation',
-       'see_level_pressure', 'wind_speed', 'max_wind_speed', 'max_gust_speed',
-       'visibility', 'cvents', 'timestamp']
+    output.columns = ['mean_temperature','max_temperature', 'min_temperature',
+                     'heating_degree_days', 'dew_point', 'avg_humidity',
+                     'max_humidity', 'min_umidity', 'precipitation',
+                     'see_level_pressure', 'wind_speed', 'max_wind_speed', 'max_gust_speed',
+                     'visibility', 'cvents', 'timestamp']
     print (output)
     return output 
 
