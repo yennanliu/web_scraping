@@ -30,7 +30,11 @@ other : dev
 # get repo and install packages 
 $ git clone https://github.com/yennanliu/web_scraping
 $ cd web_scraping 
+# install library
 $ source setup.sh
+# run demo script 
+$ python weather_scrapper/br_weather_scrapper_V1.py 
+
 ```
 
 
