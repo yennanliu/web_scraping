@@ -6,11 +6,15 @@ from bs4 import BeautifulSoup
 
 
 
-def main():
+def main(start_date,end_date):
     output=pd.DataFrame([])
     # -------------
-
-    for day in pd.date_range(start='3/1/2017', end='3/5/2017', freq='D'):
+    print ('-----------------')
+    print ('start_date : ',start_date )
+    print ('end_date : ',end_date )
+    print ('-----------------')
+    for day in pd.date_range(start=start_date, end=end_date, freq='D'):
+    #for day in pd.date_range(start_date='3/1/2017', end_date='3/5/2017', freq='D'):
         print ((day))
         date_ = str(day).split(' ')[0] 
         year_ = date_.split('-')[0]
@@ -51,19 +55,22 @@ def main():
         ### update output dataframe 
         output = output.append(df)
     output = output.reset_index()
+    print (output)
     del output['index']
     output.columns = ['mean_temperature','max_temperature', 'min_temperature',
                      'heating_degree_days', 'dew_point', 'avg_humidity',
                      'max_humidity', 'min_umidity', 'precipitation',
                      'see_level_pressure', 'wind_speed', 'max_wind_speed', 'max_gust_speed',
-                     'visibility', 'cvents', 'timestamp']
+                     'visibility', 'events', 'timestamp']
     print (output)
     return output 
 
 
 
 if __name__ == '__main__':
-	main()
+	# to do : fix potential scrap data null problem :
+	# i.e. error when 5/6/2017 
+	main('5/1/2017', '5/5/2017')
 
 
 
