@@ -10,7 +10,7 @@ def main():
     output=pd.DataFrame([])
     # -------------
 
-    for day in pd.date_range(start='3/1/2017', end='3/30/2017', freq='D'):
+    for day in pd.date_range(start='3/1/2017', end='3/5/2017', freq='D'):
         print ((day))
         date_ = str(day).split(' ')[0] 
         year_ = date_.split('-')[0]
@@ -48,12 +48,16 @@ def main():
         df = pd.DataFrame({'col':col,'val':val}).set_index('col').T.reset_index()
         df['timestamp'] = day 
         del df['index']
-        print ('df :', df)
         ### update output dataframe 
         output = output.append(df)
-        print ('output : ', output)
     output = output.reset_index()
     del output['index']
+    output.columns = ['mean_temperature', 'max_temperature', 'min_temperature',
+       'heating_degree_days', 'dew_point', 'avg_humidity',
+       'max_humidity', 'min_umidity', 'precipitation',
+       'see_level_pressure', 'wind_speed', 'max_wind_speed', 'max_gust_speed',
+       'visibility', 'cvents', 'timestamp']
+    print (output)
     return output 
 
 
