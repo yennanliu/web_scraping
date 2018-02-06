@@ -5,8 +5,29 @@ from bs4 import BeautifulSoup
 
 
 
+cols = ['Mean Temperature', 'Max Temperature', 'Min Temperature',
+    'Heating Degree Days', 'Dew Point', 'Average Humidity',
+    'Maximum Humidity', 'Minimum Humidity', 'Precipitation',
+    'Sea Level Pressure', 'Wind Speed', 'Max Wind Speed', 'Max Gust Speed',
+    'Visibility', 'Events', 'timestamp']
 
-def main(start_date,end_date):
+
+# -----------------
+# help function
+
+def col_fix(df):
+    for col in cols:
+        if col in df.columns:
+            pass
+        else:
+            df[col]  = None  
+    return df 
+
+# -----------------
+
+
+
+def main_(start_date,end_date):
     output=pd.DataFrame([])
     # -------------
     print ('-----------------')
@@ -33,31 +54,34 @@ def main(start_date,end_date):
         col=[]
         val=[]
         for tr in trs:
-            tds = tr.find_next_siblings("td") # you get list
-            print (tr.text )
-            col.append(tr.text)
-            print (tds[0].text)
-            val.append(tds[0].text.strip('\n')
-                .replace('\xa0','')
-                .replace('°C','')
-                .replace('mm','')
-                .replace('hPa','')
-                .replace('km/h\n ()','')
-                .replace('km/h','')
-                .replace('kilometers','')
-                .replace('\n\t', '')
-                .replace('\t', '')
-                .replace('\n', ''))
+            if tr.text in cols:
+                tds = tr.find_next_siblings("td") # you get list
+                print (tr.text )
+                col.append(tr.text)
+                print (tds[0].text)
+                val.append(tds[0].text.strip('\n')
+                    .replace('\xa0','')
+                    .replace('°C','')
+                    .replace('mm','')
+                    .replace('hPa','')
+                    .replace('km/h\n ()','')
+                    .replace('km/h','')
+                    .replace('kilometers','')
+                    .replace('\n\t', '')
+                    .replace('\t', '')
+                    .replace('\n', ''))
+            else:
+                col.append(tr.text) 
+                val.append(None) 
 
         df = pd.DataFrame({'col':col,'val':val}).set_index('col').T.reset_index()
         df['timestamp'] = day 
         del df['index']
-        cols = ['Mean Temperature', 'Max Temperature', 'Min Temperature',
-                'Heating Degree Days', 'Dew Point', 'Average Humidity',
-                'Maximum Humidity', 'Minimum Humidity', 'Precipitation',
-                'Sea Level Pressure', 'Wind Speed', 'Max Wind Speed', 'Max Gust Speed',
-                'Visibility', 'Events', 'timestamp']
-        df = df[cols]
+        df = col_fix(df)
+        print ('df.columns : ' , df.columns )
+        print ('cols : ' , cols  )
+        #df.columns = cols 
+        df = df[cols] 
         ### update output dataframe 
         output = output.append(df)
     output = output.reset_index()
@@ -76,7 +100,7 @@ def main(start_date,end_date):
 if __name__ == '__main__':
 	# to do : fix potential scrap data null problem :
 	# i.e. error when 5/6/2017 
-	main('5/1/2017', '5/15/2017')
+	main_('5/1/2017', '5/31/2017')
 
 
 
