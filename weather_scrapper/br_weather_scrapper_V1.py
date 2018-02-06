@@ -1,9 +1,17 @@
+# python 3 
+
+
+# ops 
 import pandas as pd
 import datetime
 import urllib, json
 from bs4 import BeautifulSoup
 
 
+# UDF 
+from script.utility_data_IO import * 
+#from script.utility_operation import * 
+#import utility_data_IO
 
 cols = ['Mean Temperature', 'Max Temperature', 'Min Temperature',
         'Heating Degree Days', 'Dew Point', 'Average Humidity',
@@ -100,9 +108,12 @@ def main_(start_date,end_date):
 
 
 if __name__ == '__main__':
-	# to do : fix potential scrap data null problem :
-	# i.e. error when 5/6/2017 
-	main_('5/1/2017', '5/31/2017')
+    # to do : fix potential scrap data null problem :
+    # i.e. error when 5/6/2017 
+    df_ = main_('1/1/2017', '1/31/2017')
+    # dump to DB 
+    write_data_to_db(df_, 'brussels_weather',db_url)
+
 
 
 
