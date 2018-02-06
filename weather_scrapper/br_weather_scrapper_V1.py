@@ -102,6 +102,11 @@ def main_(start_date,end_date):
                      'max_humidity', 'min_umidity', 'precipitation',
                      'sea_level_pressure', 'wind_speed', 'max_wind_speed', 'max_gust_speed',
                      'visibility', 'events', 'timestamp']
+
+    output = output[['timestamp','mean_temperature','max_temperature', 'min_temperature',
+                     'heating_degree_days', 'dew_point', 'avg_humidity','max_humidity', 'min_umidity', 'precipitation',
+                     'sea_level_pressure', 'wind_speed', 'max_wind_speed', 'max_gust_speed',
+                     'visibility','events']]
     print (output)
     return output 
 
