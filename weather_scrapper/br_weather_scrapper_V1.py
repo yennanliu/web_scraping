@@ -52,6 +52,12 @@ def main(start_date,end_date):
         df = pd.DataFrame({'col':col,'val':val}).set_index('col').T.reset_index()
         df['timestamp'] = day 
         del df['index']
+        cols = ['Mean Temperature', 'Max Temperature', 'Min Temperature',
+                'Heating Degree Days', 'Dew Point', 'Average Humidity',
+                'Maximum Humidity', 'Minimum Humidity', 'Precipitation',
+                'Sea Level Pressure', 'Wind Speed', 'Max Wind Speed', 'Max Gust Speed',
+                'Visibility', 'Events', 'timestamp']
+        df = df[cols]
         ### update output dataframe 
         output = output.append(df)
     output = output.reset_index()
@@ -60,7 +66,7 @@ def main(start_date,end_date):
     output.columns = ['mean_temperature','max_temperature', 'min_temperature',
                      'heating_degree_days', 'dew_point', 'avg_humidity',
                      'max_humidity', 'min_umidity', 'precipitation',
-                     'see_level_pressure', 'wind_speed', 'max_wind_speed', 'max_gust_speed',
+                     'sea_level_pressure', 'wind_speed', 'max_wind_speed', 'max_gust_speed',
                      'visibility', 'events', 'timestamp']
     print (output)
     return output 
@@ -70,7 +76,7 @@ def main(start_date,end_date):
 if __name__ == '__main__':
 	# to do : fix potential scrap data null problem :
 	# i.e. error when 5/6/2017 
-	main('5/1/2017', '5/5/2017')
+	main('5/1/2017', '5/15/2017')
 
 
 
