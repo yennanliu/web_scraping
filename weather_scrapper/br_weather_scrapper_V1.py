@@ -6,10 +6,10 @@ from bs4 import BeautifulSoup
 
 
 cols = ['Mean Temperature', 'Max Temperature', 'Min Temperature',
-    'Heating Degree Days', 'Dew Point', 'Average Humidity',
-    'Maximum Humidity', 'Minimum Humidity', 'Precipitation',
-    'Sea Level Pressure', 'Wind Speed', 'Max Wind Speed', 'Max Gust Speed',
-    'Visibility', 'Events', 'timestamp']
+        'Heating Degree Days', 'Dew Point', 'Average Humidity',
+        'Maximum Humidity', 'Minimum Humidity', 'Precipitation',
+        'Sea Level Pressure', 'Wind Speed', 'Max Wind Speed', 'Max Gust Speed',
+        'Visibility', 'Events', 'timestamp']
 
 
 # -----------------
@@ -69,7 +69,9 @@ def main_(start_date,end_date):
                     .replace('kilometers','')
                     .replace('\n\t', '')
                     .replace('\t', '')
-                    .replace('\n', ''))
+                    .replace('\n', '')
+                    .replace('- ()', '')
+                    .replace('-', ''))
             else:
                 col.append(tr.text) 
                 val.append(None) 
