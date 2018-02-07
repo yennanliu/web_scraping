@@ -4,6 +4,7 @@
 
 # ops 
 import pandas as pd
+import numpy as np 
 import datetime
 import urllib, json
 from bs4 import BeautifulSoup
@@ -80,7 +81,7 @@ def main_(start_date,end_date):
                     .replace('\t', '')
                     .replace('\n', '')
                     .replace('- ()', ''))
-                    #.replace('-', ''))
+                    #.replace('  -', ''))
             else:
                 col.append(tr.text) 
                 val.append(None) 
@@ -98,27 +99,28 @@ def main_(start_date,end_date):
     output = output.reset_index()
     print (output)
     del output['index']
+    # fix column name 
     output.columns = ['mean_temperature','max_temperature', 'min_temperature',
                      'heating_degree_days', 'dew_point', 'avg_humidity',
                      'max_humidity', 'min_umidity', 'precipitation',
                      'sea_level_pressure', 'wind_speed', 'max_wind_speed', 'max_gust_speed',
                      'visibility', 'events', 'timestamp']
-
+    # re-order columns 
     output = output[['timestamp','mean_temperature','max_temperature', 'min_temperature',
                      'heating_degree_days', 'dew_point', 'avg_humidity','max_humidity', 'min_umidity', 'precipitation',
                      'sea_level_pressure', 'wind_speed', 'max_wind_speed', 'max_gust_speed',
                      'visibility','events']]
+    # clean data 
+    output=output.replace('  -', np.nan)
     print (output)
     return output 
 
 
 
 if __name__ == '__main__':
-    # to do : fix potential scrap data null problem :
-    # i.e. error when 5/6/2017 
-    df_ = main_('1/1/2017', '1/31/2017')
+    df_ = main_('1/1/2017', '1/10/2017')
     # dump to DB 
-    write_data_to_db(df_, 'LDN_weather',db_url)
+    write_data_to_db(df_, 'weather_ldn',db_url)
 
 
 
