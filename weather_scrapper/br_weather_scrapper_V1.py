@@ -1,5 +1,6 @@
 # python 3 
 
+# grab weather data via https://www.wunderground.com/
 
 # ops 
 import pandas as pd
