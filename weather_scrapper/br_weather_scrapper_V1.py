@@ -4,6 +4,7 @@
 
 # ops 
 import pandas as pd
+import numpy as np 
 import datetime
 import urllib, json
 from bs4 import BeautifulSoup
@@ -116,7 +117,7 @@ def main_(start_date,end_date):
 
 
 if __name__ == '__main__': 
-    df_ = main_('1/1/2017', '1/31/2017')
+    df_ = main_('1/1/2017', '12/31/2017')
     # dump to DB 
     write_data_to_db(df_, 'weather_brussels',db_url)
 
