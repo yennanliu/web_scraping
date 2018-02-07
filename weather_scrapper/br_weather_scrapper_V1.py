@@ -106,7 +106,7 @@ def main_(start_date,end_date):
                      'visibility', 'events', 'timestamp']
 
     output = output[['timestamp','mean_temperature','max_temperature', 'min_temperature',
-                     'heating_degree_days', 'dew_point', 'avg_humidity','max_humidity', 'min_umidity', 'precipitation',
+                     'heating_degree_days', 'dew_point', 'avg_humidity','max_humidity', 'min_humidity', 'precipitation',
                      'sea_level_pressure', 'wind_speed', 'max_wind_speed', 'max_gust_speed',
                      'visibility','events']]
     # clean data 
@@ -117,7 +117,7 @@ def main_(start_date,end_date):
 
 
 if __name__ == '__main__': 
-    df_ = main_('1/1/2017', '12/31/2017')
+    df_ = main_('1/1/2016', '12/31/2017')
     # dump to DB 
     write_data_to_db(df_, 'weather_brussels',db_url)
 
