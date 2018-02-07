@@ -79,8 +79,8 @@ def main_(start_date,end_date):
                     .replace('\n\t', '')
                     .replace('\t', '')
                     .replace('\n', '')
-                    .replace('- ()', '')
-                    .replace('-', ''))
+                    .replace('- ()', ''))
+                    #.replace('-', ''))
             else:
                 col.append(tr.text) 
                 val.append(None) 
@@ -108,17 +108,17 @@ def main_(start_date,end_date):
                      'heating_degree_days', 'dew_point', 'avg_humidity','max_humidity', 'min_umidity', 'precipitation',
                      'sea_level_pressure', 'wind_speed', 'max_wind_speed', 'max_gust_speed',
                      'visibility','events']]
+    # clean data 
+    output=output.replace('  -', np.nan)
     print (output)
     return output 
 
 
 
-if __name__ == '__main__':
-    # to do : fix potential scrap data null problem :
-    # i.e. error when 5/6/2017 
+if __name__ == '__main__': 
     df_ = main_('1/1/2017', '1/31/2017')
     # dump to DB 
-    write_data_to_db(df_, 'brussels_weather',db_url)
+    write_data_to_db(df_, 'weather_brussels',db_url)
 
 
 
