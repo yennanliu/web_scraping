@@ -102,7 +102,7 @@ def main_(start_date,end_date):
     # fix column name 
     output.columns = ['mean_temperature','max_temperature', 'min_temperature',
                      'heating_degree_days', 'dew_point', 'avg_humidity',
-                     'max_humidity', 'min_umidity', 'precipitation',
+                     'max_humidity', 'min_humidity', 'precipitation',
                      'sea_level_pressure', 'wind_speed', 'max_wind_speed', 'max_gust_speed',
                      'visibility', 'events', 'timestamp']
     # re-order columns 
