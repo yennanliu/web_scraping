@@ -14,7 +14,6 @@ gmap_api = os.environ['gmap_api']
 print ('gmap_api : ' , gmap_api)
 
 
-
 def gmap_url(address_):
 	address_fix = address_.replace(' ','+')
 	print (address_fix)
@@ -23,7 +22,7 @@ def gmap_url(address_):
 	return g_map_url 
 
 
-def address_2_lonlat(address_):
+def address_2_lonlat(g_map_url):
 	with urllib.request.urlopen(g_map_url) as url:
 		try:
 			data = json.loads(url.read().decode())
@@ -36,6 +35,14 @@ def address_2_lonlat(address_):
 		return None 
 
 
+def get_lon_lat(address_):
+	g_map_url = gmap_url(address_)
+	data = address_2_lonlat(g_map_url)
+	try:
+		result = data['results'][0]['geometry']['location']
+	except:
+		result = None 
+	return result 
 
 
 
