@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import urllib.request, json 
 import pandas as pd 
 import numpy as np 
@@ -35,13 +37,15 @@ def address_2_lonlat(g_map_url):
 		return None 
 
 
+
 def get_lon_lat(address_):
 	g_map_url = gmap_url(address_)
-	data = address_2_lonlat(g_map_url)
 	try:
+		# to do :  fix utf-8 python 3 encodin problem 
+		data = address_2_lonlat(g_map_url)
 		result = data['results'][0]['geometry']['location']
 	except:
-		result = None 
+		result = None,None
 	return result 
 
 
