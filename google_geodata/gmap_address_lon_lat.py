@@ -49,6 +49,20 @@ def get_lon_lat(address_):
 	return result 
 
 
+# help function 
+# ------------- 
+
+def split_lat(x):
+    try:
+        return str(x['lat'])
+    except:
+        return None 
+    
+def split_lon(x):
+    try:
+        return str(x['lng'])
+    except:
+        return None 
 
 
 
