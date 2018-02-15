@@ -4,6 +4,11 @@
 # https://pypi.python.org/pypi/geopy
 
 
+# todo : deal with geopy request limit 
+# https://stackoverflow.com/questions/30108786/how-to-deal-with-geopys-query-limit
+# install Nominatim on server 
+# https://wiki.openstreetmap.org/wiki/Nominatim/Installation
+
 import numpy as np 
 import requests
 import os 
