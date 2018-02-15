@@ -36,6 +36,36 @@ def address_2_lonlat(x):
 
 
 
+def address_2_lonlat_hack(x):
+    """
+    in case frequent request would make script get block
+    here is a mini hack : make script sleep until the API is able to response 
+    then do the run again 
+    """
+    print (x)
+    time.sleep(1)  # let's see if sleep 1 per epoch is OK for limitation 
+    try:
+        geolocator = Nominatim()
+        location = geolocator.geocode(x)
+        print(location.latitude, location.longitude)
+        return [location.latitude, location.longitude]
+    except Exception as e:
+        print (e)
+        if e == '[Errno 61] Connection refused':
+            print ('meet API request limit, try again...')
+            print ('sleep 1 min  ...')
+            time.sleep(60)
+            address_2_lonlat_hack(x)
+        else:
+            print ('fail to convert address to lon & lat ') 
+        return [None,None]
+
+
+
+
+# help function 
+# ------------- 
+
 def split_lat(x):
     try:
         return x[0]
@@ -47,6 +77,21 @@ def split_lon(x):
         return x[1]
     except:
         return None 
+
+
+# work function 
+# ------------- 
+
+
+def run_hack(df):
+    """
+    df :
+    id, address zipcode , lat lon 
+    """
+    pass 
+
+
+
 
 
 
