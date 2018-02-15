@@ -10,6 +10,7 @@
 # https://wiki.openstreetmap.org/wiki/Nominatim/Installation
 
 import numpy as np 
+import time
 import requests
 import os 
 from geopy.geocoders import Nominatim
@@ -18,6 +19,7 @@ from geopy.geocoders import Nominatim
 
 def address_2_lonlat(x):
     print (x)
+    time.sleep(1)  # let's see if sleep 1 per epoch is OK for limitation 
     try:
         geolocator = Nominatim()
         location = geolocator.geocode(x)
