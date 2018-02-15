@@ -10,9 +10,11 @@ import os
 from geopy.geocoders import Nominatim
 
 
+
 def address_2_lonlat(x):
     print (x)
     try:
+        geolocator = Nominatim()
         location = geolocator.geocode(x)
         print(location.latitude, location.longitude)
         return [location.latitude, location.longitude]
