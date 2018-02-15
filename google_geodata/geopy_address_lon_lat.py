@@ -9,6 +9,10 @@
 # install Nominatim on server 
 # https://wiki.openstreetmap.org/wiki/Nominatim/Installation
 
+
+# work around 
+# https://www.shanelynn.ie/batch-geocoding-in-python-with-google-geocoding-api/
+
 import numpy as np 
 import time
 import requests
