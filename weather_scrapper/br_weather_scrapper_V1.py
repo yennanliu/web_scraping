@@ -111,13 +111,34 @@ def main_(start_date,end_date):
                      'visibility','events']]
     # clean data 
     output=output.replace('  -', np.nan)
-    print (output)
+    """
+    # modify data type 
+    output['mean_temperature']=output['mean_temperature'].astype('float')
+    output['max_temperature']=output['max_temperature'].astype('float')
+    output['min_temperature']=output['min_temperature'].astype('float')
+    output['heating_degree_days']=output['heating_degree_days'].astype('float')
+    output['dew_point']=output['dew_point'].astype('float')
+    output['avg_humidity']=output['avg_humidity'].astype('float')
+    output['max_humidity']=output['max_humidity'].astype('float')
+    output['min_humidity']=output['min_humidity'].astype('float')
+    output['precipitation']=output['precipitation'].astype('float')
+    output['sea_level_pressure']=output['sea_level_pressure'].astype('float')
+    output['wind_speed']=output['wind_speed'].astype('float')
+    output['max_wind_speed']=output['max_wind_speed'].astype('float')
+    output['max_gust_speed']=output['max_gust_speed'].astype('float')
+    output['events']=output['events'].astype('str')
+
+    print (output.info())
+    """
+    print (output.head())
     return output 
 
 
 
 if __name__ == '__main__': 
-    df_ = main_('2/1/2016', '12/31/2017')
+    df_ = main_('1/1/2018', '1/31/2018')
+    #df_ = main_('2/1/2016', '2/10/2016')
+    print (df_)
     # dump to DB 
     write_data_to_db(df_, 'weather_brussels',db_url)
 
