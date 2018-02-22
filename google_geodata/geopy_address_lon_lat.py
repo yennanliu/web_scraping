@@ -51,7 +51,7 @@ def address_2_lonlat_hack(x):
         return [location.latitude, location.longitude]
     except Exception as e:
         print (e)
-        if e == '[Errno 61] Connection refused':
+        if str(e) == '[Errno 61] Connection refused':
             print ('meet API request limit, try again...')
             print ('sleep 1 min  ...')
             time.sleep(60)
