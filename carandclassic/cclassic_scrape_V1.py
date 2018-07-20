@@ -28,6 +28,25 @@ def main():
 	print (df)
 
 
+def main_():
+	url='https://www.carandclassic.co.uk/'
+	opener=urllib.request.build_opener()
+	opener.addheaders = [('User-agent', 'Mozilla/5.0')]
+	page = opener.open(url)
+	soup = BeautifulSoup(page)
+	content=soup.find_all('div',attrs={'class': 'item'})
+	car_list = []
+	for i in range(len(soup.find_all('div',attrs={'class': 'item'}))):
+		car_id = content[i].find('a').attrs['href']
+		car_list.append(car_id)
+	print (car_list)
+
+
 
 if __name__ == '__main__':
-	main()
+	main_()
+
+
+
+
+
