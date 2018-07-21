@@ -40,7 +40,27 @@ def main_():
 		car_id = content[i].find('a').attrs['href']
 		car_list.append(car_id)
 	print (car_list)
-
+	url_='https://www.carandclassic.co.uk/car/C1017938' 
+	opener=urllib.request.build_opener()
+	opener.addheaders = [('User-agent', 'Mozilla/5.0')]
+	page = opener.open(url_)
+	soup = BeautifulSoup(page)
+	# Make, Model, Date, Ref, Telephone
+	output={'Price':[],'Category':[],'Make':[],
+			'Model':[],'Year':[],'Country':[],'Year':[],
+			'Telephone':[],'Date':[],'Ref':[]}
+	output=[]
+	k_list = ['Price','Category','Make','Model','Year','Country','Telephone','Date','Ref']
+	conetent=soup.find_all('td',attrs={'class':'caption'})
+	for k in conetent:
+		if k.text in k_list:
+			print ('k_next' , k.find_next_siblings("td")[0].text)
+			output.append(k.find_next_siblings("td")[0].text)
+		else:
+			pass
+	data=dict(zip(k_list,output))
+	print (data)
+    
 
 
 if __name__ == '__main__':
