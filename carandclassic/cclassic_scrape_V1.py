@@ -42,8 +42,8 @@ def test():
 
 
 def main_():
-	# -----------  collect car ID  -----------
-	url='https://www.carandclassic.co.uk/'
+	# -----------  collect classic car ID  -----------
+	url='https://www.carandclassic.co.uk/cat/3/'
 	soup = get_html_data(url)
 	content=soup.find_all('div',attrs={'class': 'item'})
 	car_list = []
@@ -65,8 +65,8 @@ def main_():
 		# ----------- collect needed columns -----------
 		# Make, Model, Date, Ref, Telephone
 		k_list = ['Price','Category','Make','Model','Year','Country','Telephone','Date','Ref']
-		conetent=soup.find_all('td',attrs={'class':'caption'})
-		for k in conetent:
+		content=soup.find_all('td',attrs={'class':'caption'})
+		for k in content:
 			if k.text in k_list:
 				print ('k_next' , k.find_next_siblings("td")[0].text)
 				output[i].append(k.find_next_siblings("td")[0].text)
