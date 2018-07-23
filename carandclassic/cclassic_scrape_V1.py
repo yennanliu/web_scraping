@@ -17,11 +17,14 @@ def get_html_data(url):
 	soup = BeautifulSoup(page)
 	return soup
 
+def fix_price(x):
+    return x.split(' ')[0]
+
 
 #----------------------------------------
 
 
-def main():
+def test():
 	url='https://www.carandclassic.co.uk/'
 	soup = get_html_data(url)
 	output={'a':[],'b':[],'c':[],'d':[],'e':[]}
@@ -38,7 +41,7 @@ def main():
 
 
 def main_():
-	# get car ID list with "available price"
+	# -----------  get car ID list with "available price" -----------
 	url='https://www.carandclassic.co.uk/'
 	soup = get_html_data(url)
 	content=soup.find_all('div',attrs={'class': 'item'})
@@ -51,12 +54,13 @@ def main_():
 			pass 
 	print (car_list)
 	#car_list = ['/car/C1017959', '/car/C1017957','/car/C1017957']
-	# go through every car page, grab the car profile information 
+	# ----------- go through every car page, grab the car profile information  -----------
 	output=[[] for i in range(len(car_list))]
 	for i,car in enumerate(car_list):	
 		url_ = 'https://www.carandclassic.co.uk' + str(car) 
 		print ('url_ : ', url_)
 		soup = get_html_data(url_)
+		# ----------- collect needed columns -----------
 		# Make, Model, Date, Ref, Telephone
 		k_list = ['Price','Category','Make','Model','Year','Country','Telephone','Date','Ref']
 		conetent=soup.find_all('td',attrs={'class':'caption'})
@@ -67,8 +71,11 @@ def main_():
 			else:
 				pass
 	print (output)
+	# ----------- output scrape data as dataframe and fix column value -----------
 	data = pd.DataFrame(output,columns =k_list )
+	data['Price'] = data['Price'].apply(lambda x :  fix_price(x))
 	print (data)
+	return data
     
 #----------------------------------------
 
