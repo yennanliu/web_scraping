@@ -23,7 +23,7 @@ def fix_price(x):
 
 #----------------------------------------
 
-
+"""
 def test():
 	url='https://www.carandclassic.co.uk/'
 	soup = get_html_data(url)
@@ -38,15 +38,17 @@ def test():
 		output['e'].append(content[i].find_all('a')[1].text)
 	df=pd.DataFrame.from_dict(output)
 	print (df)
+"""
 
 
 def main_():
-	# -----------  get car ID list with "available price" -----------
+	# -----------  collect car ID  -----------
 	url='https://www.carandclassic.co.uk/'
 	soup = get_html_data(url)
 	content=soup.find_all('div',attrs={'class': 'item'})
 	car_list = []
 	for i in range(len(soup.find_all('div',attrs={'class': 'item'}))):
+		# -----------  only get car ID with not null price -----------
 		if len(content[i].find('li',attrs={'class':'price'}).text.replace('£','')) > 0:
 			car_id = content[i].find('a').attrs['href']
 			car_list.append(car_id)
