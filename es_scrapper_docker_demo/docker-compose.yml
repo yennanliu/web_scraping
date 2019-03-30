@@ -4,6 +4,8 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile
+    networks:
+           docker-network
     depends_on:
       - elasticsearch
   elasticsearch:
@@ -16,14 +18,20 @@ services:
       memlock:
         soft: -1
         hard: -1
+    networks:
+           docker-network
     ports:
       - "9200:9200"
   kibana:
     image: docker.elastic.co/kibana/kibana:6.3.2
+    environment:
+          - "ELASTICSEARCH_URL=http://127.0.0.1:9200"
+    networks:
+           docker-network
     ports:
       - "5601:5601"
     depends_on:
       - elasticsearch
-
-
-#https://alysivji.github.io/elasticsearch-kibana-with-docker-compose.html
+networks:
+  docker-network:
+    driver: bridge
