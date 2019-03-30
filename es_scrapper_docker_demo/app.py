@@ -4,7 +4,9 @@ import requests
 from bs4 import BeautifulSoup
 from elasticsearch import Elasticsearch
 
-es_client = Elasticsearch(['http://localhost:9200'])
+# change to local host default ip 
+#es_client = Elasticsearch(['http://localhost:9200'])
+es_client = Elasticsearch(['http://127.0.0.1:9200'])
 
 drop_index = es_client.indices.create(index='blog-sysadmins', ignore=400)
 create_index = es_client.indices.delete(index='blog-sysadmins', ignore=[400, 404])
@@ -30,7 +32,6 @@ def urlparser(title, url):
         'tags': tag_names,
         'url': url
     }
-
     # ingest payload into elasticsearch
     res = es_client.index(index="blog-sysadmins", doc_type="docs", body=doc)
     time.sleep(0.5)
