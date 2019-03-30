@@ -41,6 +41,8 @@ page = requests.get(sitemap_feed)
 sitemap_index = BeautifulSoup(page.content, 'html.parser')
 urls = [element.text for element in sitemap_index.findAll('loc')]
 
-for x in urls:
-    print ('x :', x )
-    urlparser(x, x)
+for i in range(3):
+    for x in urls:
+        print ('x :', x )
+        urlparser(x, x)
+    time.sleep(5)
