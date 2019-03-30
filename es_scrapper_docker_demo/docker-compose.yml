@@ -4,6 +4,8 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile
+    depends_on:
+      - elasticsearch
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:6.3.2
     environment:
@@ -20,6 +22,8 @@ services:
     image: docker.elastic.co/kibana/kibana:6.3.2
     ports:
       - "5601:5601"
+    depends_on:
+      - elasticsearch
 
 
 #https://alysivji.github.io/elasticsearch-kibana-with-docker-compose.html
