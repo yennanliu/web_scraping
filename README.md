@@ -1,12 +1,11 @@
 # web_scraping
 
-
 Collection of scrappers for different applications 
 
 
 ### File structure 
 
-```
+``` 
 ├── booking           : booking.com hotel scraping 
 ├── carousell         : carousell product scraping with names
 ├── eztable           : eztable restaurant scraping
@@ -16,13 +15,11 @@ Collection of scrappers for different applications
 
 other : dev 
 
-
 ```
 
 ### Tech 
 
 - Python 3  
-
 
 ### Quick start
 
@@ -40,6 +37,13 @@ $ python weather_scrapper/br_weather_scrapper_V1.py
 
 ### Todo 
 ```
+# Project level
+1. Dockerize the project 
+2. Run the scrapping (cron/paralel)jobs via Celery 
+3. Deploy to Heroku cloud 
+4. Add test 
+
+# Programming level 
 1. Add utility scripts that can get XPATH of all objects in html
 2. Workflow that automate whole processes
 3. Job management 
@@ -48,6 +52,9 @@ $ python weather_scrapper/br_weather_scrapper_V1.py
 	- Queue 
 4. Scrapping tutorial 
 5. Scrapy, Phantomjs 
+
+# Others 
+1. Web scrapping 101 tutorial 
 
 ```
 
