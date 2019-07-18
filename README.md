@@ -13,14 +13,7 @@ Collection of scrappers for different applications
 ### Quick start
 
 ```bash
-# get repo and install packages 
-$ git clone https://github.com/yennanliu/web_scraping
-$ cd web_scraping 
-# install library
-$ source setup.sh
-# run demo script 
-$ python weather_scrapper/br_weather_scrapper_V1.py 
-
+# refactor, dev 
 ```
 
 
@@ -47,5 +40,11 @@ $ python weather_scrapper/br_weather_scrapper_V1.py
 
 ```
 
+### Ref 
+- Run scraper via Cerlery
+
+- Travis push to github 
+	- https://medium.com/@preslavrachev/using-travis-for-secure-building-and-deployment-to-github-5a97afcac113
+	- https://gist.github.com/willprice/e07efd73fb7f13f917ea
 
 
