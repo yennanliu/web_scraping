@@ -1,0 +1,16 @@
+sudo: required
+
+services:
+  - docker
+
+branches:
+  only:
+  - master
+
+notifications:
+  email:
+    - f339339@gmail.com
+
+script:
+  - echo ' ----------------- STEP 1)  ----------------- '
+  - docker build -t web_scraping_env . && docker run -it web_scraping_env /bin/bash -c "python cron_test.sh" 
