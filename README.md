@@ -16,8 +16,10 @@ Collection of scrappers for different applications
 # refactor, dev 
 ```
 
-
 ### Todo 
+<details>
+<summary>TODO</summary>
+
 ```
 ### Project level
 1. Dockerize the project 
@@ -40,8 +42,12 @@ Collection of scrappers for different applications
 
 ```
 
+</details>
+
+
 ### Ref 
-- Run scraper via Cerlery
+- Scraping via Celery
+	- https://www.pythoncircle.com/post/518/scraping-10000-tweets-in-60-seconds-using-celery-rabbitmq-and-docker-cluster-with-rotating-proxy/
 
 - Travis push to github 
 	- https://medium.com/@preslavrachev/using-travis-for-secure-building-and-deployment-to-github-5a97afcac113
