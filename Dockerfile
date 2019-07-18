@@ -8,6 +8,6 @@ COPY . $HOME
 
 RUN pip install --upgrade pip && \
 pip install -r requirements.txt && \ 
-pwd && ls && ls home &&  
+pwd && ls && ls home   
 
 RUN /bin/bash -c "python cron_test.py"
