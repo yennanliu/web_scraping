@@ -14,3 +14,13 @@ notifications:
 script:
   - echo ' ----------------- STEP 1)  ----------------- '
   - docker build -t web_scraping_env . && docker run -it web_scraping_env /bin/bash -c "python cron_test.py && bash travis_push_github.sh" 
+
+deploy:
+  provider: pages
+  skip-cleanup: true
+  target-branch: master # commit to master instead of gh-pages
+  github-token: $GITHUB_TOKEN
+  keep-history: true # by default, Travis uses push --force and wipes out commit history
+  verbose: true
+  on:
+    branch: master
