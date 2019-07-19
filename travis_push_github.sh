@@ -23,7 +23,7 @@ commit_output_file() {
 upload_files() {
   echo 'Travis push to github'	
   git remote add origin-pages https://${GITHUB_TOKEN}@github.com/yennanliu/web_scraping.git > /dev/null 2>&1
-  git push origin HEAD:web_scraping
+  git push --quiet --set-upstream origin HEAD:web_scraping
 }
 
 setup_git
