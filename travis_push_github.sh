@@ -16,14 +16,14 @@ commit_website_files() {
 }
 
 commit_output_file() {
-  git add output/output*.csv
+  git add output/output*.txt
   git commit --message "Travis build  : $TRAVIS_BUILD_NUMBER"
 }
 
 upload_files() {
   echo 'Travis push to github'	
-  git remote add origin-pages https://${GH_TOKEN}@github.com/yennanliu/web_scraping.git > /dev/null 2>&1
-  git push --quiet --set-upstream origin-pages gh-pages 
+  git remote add origin-pages https://${GITHUB_TOKEN}@github.com/yennanliu/web_scraping.git > /dev/null 2>&1
+  git push --quiet --set-upstream origin
 }
 
 setup_git
