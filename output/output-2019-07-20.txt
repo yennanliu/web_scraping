@@ -1,0 +1,3 @@
+* this is cron test program 
+2019-07-20 01:58:26.837821
+hello world
