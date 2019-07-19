@@ -5,7 +5,7 @@
 #################################################################
 
 setup_git() {
-  git config --global user.email $user_email
+  git config --global user.email "f339339@gmail.com"
   git config --global user.name "Travis CI"
 }
 
