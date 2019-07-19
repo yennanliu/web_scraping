@@ -1,8 +1,8 @@
 #!/bin/sh
 
-#################################################################
+####################################################################
 # MODIFY FROM https://gist.github.com/willprice/e07efd73fb7f13f917ea 
-#################################################################
+####################################################################
 
 setup_git() {
   git config --global user.email "f339339@gmail.com"
@@ -23,7 +23,7 @@ commit_output_file() {
 upload_files() {
   echo 'Travis push to github'	
   git remote add origin-pages https://${GITHUB_TOKEN}@github.com/yennanliu/web_scraping.git > /dev/null 2>&1
-  git push --quiet --set-upstream origin
+  git push origin HEAD:web_scraping
 }
 
 setup_git
