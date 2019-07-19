@@ -5,7 +5,7 @@
 ####################################################################
 
 setup_git() {
-  git config --global user.email "f339339@gmail.com"
+  git config --global user.email "travis@travis-ci.org"
   git config --global user.name "Travis CI"
 }
 
@@ -22,8 +22,8 @@ commit_output_file() {
 
 upload_files() {
   echo 'Travis push to github'	
-  git remote add origin-pages https://${GITHUB_TOKEN}@github.com/yennanliu/web_scraping.git > /dev/null 2>&1
-  git push --quiet --set-upstream origin HEAD:web_scraping
+  git remote add origin-pages https://yennanliu:${GITHUB_TOKEN}@github.com/yennanliu/web_scraping.git > /dev/null 2>&1
+  git push origin master --quiet
 }
 
 setup_git
