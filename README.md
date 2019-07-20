@@ -53,5 +53,6 @@ Collection of scrappers for different applications
 	- https://medium.com/@preslavrachev/using-travis-for-secure-building-and-deployment-to-github-5a97afcac113
 	- https://gist.github.com/willprice/e07efd73fb7f13f917ea
 	- https://www.vinaygopinath.me/blog/tech/commit-to-master-branch-on-github-using-travis-ci/
+	- https://www.hidennis.tech/2015/07/07/deploy-blog-using-travis/
 
 
