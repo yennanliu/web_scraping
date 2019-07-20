@@ -1,27 +1,25 @@
 sudo: required
-
 services:
-  - docker
-
+- docker
 branches:
   only:
   - master
-
 notifications:
   email:
-    - f339339@gmail.com
-
+  - f339339@gmail.com
 script:
-  - echo ' ----------------- STEP 1)  ----------------- '
-  - docker build -t web_scraping_env . && docker run -it web_scraping_env /bin/bash -c "python cron_test.py && bash travis_push_github.sh" 
-
+- echo ' ----------------- STEP 1)  ----------------- '
+- docker build -t web_scraping_env . && docker run -it web_scraping_env /bin/bash
+  -c "python cron_test.py && bash travis_push_github.sh"
 deploy:
   provider: pages
   skip-cleanup: true
-  target-branch: master # commit to master instead of gh-pages
-  github-token: $GITHUB_TOKEN
-  keep-history: true # by default, Travis uses push --force and wipes out commit history
+  target-branch: master
+  github-token: "$GITHUB_TOKEN"
+  keep-history: true
   verbose: true
-  secure: "sB03ac/FRic+4OrADRqCVfGxT+qCY1LmuM0a+XfZKUAsMHTFsjkDneVw69QN3mQSHZsW35S2cHArR62KqjIjptMqUZXN67hkWpWuNbjfIABQrS34D+O2KctsDs59qFGW7SIiXPs7UdcHC/eeSOwGUsUfYWiHTaX+NJJnhcKlA7gO9JNYenVpPvxibFsedoNnh/cjrGrFmnpnZwczbulW+p0b3utGoa5m02QHyYaaE52lXH1I1lA/TW0ulf96G/7NcsqKW+EjZ4uR/jOoKWDr90VM7gqlqkHTUZY3c9GptayBsC++TFOoS8uj6fHdYg0Y0wKxM1BI44k3dhc7FMy0dPlkD4KFz4w2yFB8F46pcDVzXXzW0MvL1SaB0KnclVL2wa6WTyDatidBdO0gdT9UiWvaqh5Pvtqufde4O8QCvsewS0NbvznaKweju6oom9zzMm/sR5G6TcdsLQzzTRdw+Bd9Ti0XToKUMbw0WI+khImVEAtDdbXfFn622s97JDZck8r2UMqa1Nz0ZuNzH8G7pWYdGtFWrUT52MxjMnVdduAvJh67KOO4FEH/MaCbXNM6sZkEyIaozud4a+94zLvTQvv0z9nkOMMkuPs/qn+Vm7dzoEpAvtRpvnisv4Cec2bYnnp2+/7VOHpoOMlssyEsbhzGyWs9geFSJFGZ9PRonz8="
   on:
     branch: master
+env:
+  global:
+    secure: t6FDu8fHiCN8z+QXc1aAgx4gkeZsrZaRiE5JzsyaUpX/HJAFEwvbRDC07ZtwBg9YsCgpwHEX5QZvYR54bKGS+Jr8t7bW+XYsk84IOCRv/nAbfVGkEOfuq16vpfML+seetHvY7r+xnGTSkCurXUgX6VagBQJuD44s8DIj4FtROtlBreDvwH6tjjrV7WZsMKozjlRLjEWabQFcC/2UUfh5OjAuRJ+IkccpAMjjDDB+2qFogw66CL1nq0raXAZhw20HtVMpTQ7vGxZPAtK3zxgJp56roZfbTKi9Q8dSoJc1C1e+PLxQ4Xs3YtwBoalUYTEVJGx/J7GKygmulB3NWG57c5e76hXx7UYQ776Y3lr0IFkFXfbX+TM859wbpqG8ImM3R7jUuIAPBcW/ZagO/Q52ujEH6KV7TsIBIWHRb6+KjjN7DpJl1WXgxG70ZF9WcTVnsJQnqeFSzvFNl5ji5htcMkaRDHQoOurv3hvyjqo2hxt0x4oiv93yaGzD8ii2/OxYrd3JNu3RtdDj0vxai86NOZ4L15DVBZ5Z3x0/odLiXUgJOooNfG9gikSxhQJlrg/7qxpSkX4Bx2pM/Lu4nbHfJab+r3qWcBUsZwtNxWkpebV8BGwUTxmEFL0eF32kr+aB8SOzsnFIdJMIspOF2W/WsXaeC8vGsuW/0DeSsHxOug0=
