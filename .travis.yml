@@ -22,5 +22,6 @@ deploy:
   github-token: $GITHUB_TOKEN
   keep-history: true # by default, Travis uses push --force and wipes out commit history
   verbose: true
+  secure: "sB03ac/FRic+4OrADRqCVfGxT+qCY1LmuM0a+XfZKUAsMHTFsjkDneVw69QN3mQSHZsW35S2cHArR62KqjIjptMqUZXN67hkWpWuNbjfIABQrS34D+O2KctsDs59qFGW7SIiXPs7UdcHC/eeSOwGUsUfYWiHTaX+NJJnhcKlA7gO9JNYenVpPvxibFsedoNnh/cjrGrFmnpnZwczbulW+p0b3utGoa5m02QHyYaaE52lXH1I1lA/TW0ulf96G/7NcsqKW+EjZ4uR/jOoKWDr90VM7gqlqkHTUZY3c9GptayBsC++TFOoS8uj6fHdYg0Y0wKxM1BI44k3dhc7FMy0dPlkD4KFz4w2yFB8F46pcDVzXXzW0MvL1SaB0KnclVL2wa6WTyDatidBdO0gdT9UiWvaqh5Pvtqufde4O8QCvsewS0NbvznaKweju6oom9zzMm/sR5G6TcdsLQzzTRdw+Bd9Ti0XToKUMbw0WI+khImVEAtDdbXfFn622s97JDZck8r2UMqa1Nz0ZuNzH8G7pWYdGtFWrUT52MxjMnVdduAvJh67KOO4FEH/MaCbXNM6sZkEyIaozud4a+94zLvTQvv0z9nkOMMkuPs/qn+Vm7dzoEpAvtRpvnisv4Cec2bYnnp2+/7VOHpoOMlssyEsbhzGyWs9geFSJFGZ9PRonz8="
   on:
     branch: master
