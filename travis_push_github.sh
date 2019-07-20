@@ -28,7 +28,7 @@ upload_files() {
   #git push origin master --quiet
 
   git remote add origin https://${GH_TOKEN}@github.com/yennanliu/web_scraping.git > /dev/null 2>&1
-  git push --quiet --set-upstream origin
+  git push origin master --quiet
 
 }
 
