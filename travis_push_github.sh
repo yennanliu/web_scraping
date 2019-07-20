@@ -28,7 +28,8 @@ upload_files() {
   #git push origin master --quiet
 
   #git remote add origin https://${GH_TOKEN}@github.com/yennanliu/web_scraping.git > /dev/null 2>&1
-  git remote add origin https://yennanliu:${GH_TOKEN}@github.com/yennanliu/web_scraping.git > /dev/null 2>&1
+
+  git remote add origin https://yennanliu:$GITHUB_TOKEN@github.com/yennanliu/web_scraping.git > /dev/null 2>&1
   git push origin master --quiet
 
 }
