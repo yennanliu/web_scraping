@@ -5,6 +5,7 @@
 ####################################################################
 
 setup_git() {
+  git init 
   git config --global user.email "travis@travis-ci.org"
   git config --global user.name "Travis CI"
 }
@@ -17,8 +18,9 @@ commit_website_files() {
 
 commit_output_file() {
   git status 
-  git add output/output*.txt
-  git commit --message "Travis build  : $TRAVIS_BUILD_NUMBER"
+  #git add output/output*.txt
+  git add . 
+  git commit --m "Travis build  : $TRAVIS_BUILD_NUMBER"
 }
 
 upload_files() {
@@ -30,7 +32,7 @@ upload_files() {
 
   #git remote add origin https://${GH_TOKEN}@github.com/yennanliu/web_scraping.git > /dev/null 2>&1
 
-  git remote add origin https://yennanliu:${GITHUB_TOKEN}@github.com/yennanliu/web_scraping.git > /dev/null 2>&1
+  git remote add origin https://${GITHUB_TOKEN}@github.com/yennanliu/web_scraping.git > /dev/null 2>&1
   git push origin master --quiet
 
 }
