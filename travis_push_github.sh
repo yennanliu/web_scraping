@@ -22,8 +22,8 @@ commit_output_file() {
 
 upload_files() {
   echo 'Travis push to github'	
-  #git remote add origin https://${GITHUB_TOKEN}@github.com/yennanliu/web_scraping.git > /dev/null 2>&1
-  git remote add origin > /dev/null 2>&1
+  git remote add origin https://${GITHUB_TOKEN}@github.com/yennanliu/web_scraping.git > /dev/null 2>&1
+  #git remote add origin > /dev/null 2>&1
   git push origin master --quiet
 }
 
