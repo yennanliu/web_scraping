@@ -16,7 +16,7 @@ deploy:
   script: bash travis_push_github.sh
   skip-cleanup: true
   target-branch: master
-  github-token: $GITHUB_TOKEN
+  github-token: $GH_TOKEN
   keep-history: true
   verbose: true
   on:
