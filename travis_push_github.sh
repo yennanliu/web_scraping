@@ -18,8 +18,8 @@ commit_website_files() {
 
 commit_output_file() {
   git status 
-  #git add output/output*.txt
-  git add . 
+  git add output/output*.txt
+  #git add . 
   git commit --m "Travis build  : $TRAVIS_BUILD_NUMBER"
 }
 
@@ -31,7 +31,7 @@ upload_files() {
   #git push origin master --quiet
 
   #git remote add origin https://${GH_TOKEN}@github.com/yennanliu/web_scraping.git > /dev/null 2>&1
-  git remote set-url origin git@github.com:yennanliu/web_scraping.git > /dev/null 2>&1
+  yes | git remote set-url origin git@github.com:yennanliu/web_scraping.git > /dev/null 2>&1
   yes | git push origin master --quiet
 
 }
