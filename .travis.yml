@@ -9,10 +9,10 @@ email:
 - f339339@gmail.com
 script:
 - echo ' ----------------- STEP 1)  ----------------- '
-- docker build -t web_scraping_env .
+- docker build -t web_scraping_env . && docker run -it web_scraping_env /bin/bash -c "python cron_test.py"
 deploy:
 provider: script
-script: bash docker run -it web_scraping_env /bin/bash -c "python cron_test.py && bash travis_push_github.sh"
+script: bash travis_push_github.sh
 skip-cleanup: true
 target-branch: master
 github-token: $GITHUB_TOKEN
