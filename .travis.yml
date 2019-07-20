@@ -17,6 +17,7 @@ deploy:
   skip-cleanup: true
   target-branch: master
   github-token: $GITHUB_TOKEN
+    secure: Yfr36/XdwtZyjUBJwYTboFAfH5qqSYRd7d1vx/vHO1fCP4XtQWqT1Lvo5pfbHXghOjiJZZcfhO72inUKJ7er9QXznsGufj6nnQUJs/dOoBbfGnLSdvSYT6lpXTe7GYMbOgUsmYtjeD8S6pyL2L8xcX1fPZzsVD7v/edG9kZo1H9+fKCbVipBNf0IXO4DaE1H4vw77UVb6ysA3npxyIprM4jXUkZW3KFb7fA7/LENpS1NPniQxYe1LuUjzOpdJAG28WIeQnC/Cb+jz16cRtIV7HgukG0WnpHdszI+Xj4Kx+46URZnXW95cpZ2cq4Oywx98XZbC5uEXn3GeB/9JgvnuNsfsYOzhdCg29Ca/JGiUyri7F/x3mFxMfl2OoJeO50R4JTnwPrAHot8m914rP/VXtGZFPJQfXjoyKQJPnHFO0Yt+IJ9ziK3r3tLcdrbYngPuoBHFEYr4f87jOjdiyn/+1x9liLYh+Z0/6UdbQJRQnsAh+ghSvs1M7FIKY4eMHPW9qKPUbfsQIRckTzC6U7lX16eiPQk+wehJ7o//FB6MFOEvbownBcDUooITJXgC0Cvtpd831ktlkxPqyJh13X9URbEyD25zG58zI9Bq7RfeCjWN8LZaa7bLyjhDR2KzAvWDfKowbUShpznlSSSo2czn81kT1GXaAa4Iz215kNCDfs=
   keep-history: true
   verbose: true
   on:
