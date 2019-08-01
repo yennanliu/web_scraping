@@ -1,13 +1,12 @@
-FROM continuumio/miniconda3
+FROM python:3.6-alpine
 
 LABEL maintainer "yennj12"
 
-ENV HOME /
-WORKDIR $HOME
-COPY . $HOME
-
-RUN pip install --upgrade pip && \
-pip install -r requirements.txt && \ 
-pwd && ls && ls home   
-
-RUN /bin/bash -c "python cron_test.py"
+ENV CELERY_BROKER_URL redis://redis:6379/0
+ENV CELERY_RESULT_BACKEND redis://redis:6379/0
+ENV C_FORCE_ROOT true
+ADD requirements.txt /app/requirements.txt
+ADD ./test_celery/ /app/
+WORKDIR /app/
+RUN pip install -r requirements.txt
+ENTRYPOINT celery -A task  worker --loglevel=info  
