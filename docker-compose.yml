@@ -1,0 +1,44 @@
+version: "3"
+services:
+  web:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+     - "5001:5001"
+    depends_on:
+      - redis
+  worker:
+    build:
+      context: celery-queue
+      dockerfile: Dockerfile
+    depends_on:
+      - redis
+  monitor:
+    build:
+      context: celery-queue
+      dockerfile: Dockerfile
+    ports:
+     - "5555:5555"
+    entrypoint: flower
+    command:  -A tasks --port=5555 --broker=redis://redis:6379/0
+    depends_on:
+      - redis
+  redis:
+    image: redis
+    ports:
+     - "6379:6379"
+  mongodb:
+    image: mongo:latest
+    ports:
+     - "27017:27017"
+    container_name: "mongodb"
+    environment:
+     - MONGO_DATA_DIR=/data/db
+     - MONGO_LOG_DIR=/dev/null
+     - MONGODB_USER="mongo"
+     - MONGODB_PASS="password" 
+    volumes:
+    - ./data/db:/data/db
+    #command: mongod --smallfiles --logpath=/dev/null # --quiet
