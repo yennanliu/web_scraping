@@ -1,1 +1,5 @@
-celery
+celery==4.2.1
+requests
+pymongo==3.4.0
+redis
+beautifulsoup4
