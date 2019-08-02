@@ -2,8 +2,11 @@
 import requests
 import pandas as pd
 import time 
+import datetime
 from IndeedScrapper.indeed_scrapper import *
 
+# current date 
+current_date  = datetime.datetime.now().strftime('%Y-%m-%d')
 
 # limit per sity
 max_results_per_city = 10
@@ -105,7 +108,7 @@ for city in city_set:
                 write_logs(('Completed =>') + '\t' + city  + '\t' + job_qry + '\t' + str(cnt) + '\t' + str(start) + '\t' + str(time.time() - startTime) + '\t' + ('file_' + str(file)))
 
             #saving df as a local csv file 
-            df.to_csv('jobs_' + str(file) + '.csv', encoding='utf-8')
+            df.to_csv('output/{}_jobs_'.format(current_date) + str(file) + '.csv', encoding='utf-8')
         
         else:
 
