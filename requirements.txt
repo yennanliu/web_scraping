@@ -3,3 +3,4 @@ requests
 pymongo==3.4.0
 redis
 beautifulsoup4
+pandas
