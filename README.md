@@ -1,6 +1,6 @@
 # web_scraping
 
-Collection of scrappers for different applications 
+Collection of scrapper pipelines build for different purposes 
 
 ### File structure 
 
@@ -51,11 +51,12 @@ $ cd ~ && cd web_scraping &&  docker-compose -f  docker-compose.yml up
 1. Web scrapping 101 tutorial 
 
 ```
-
 </details>
 
 
 ### Ref 
+<details>
+<summary>Ref</summary>
 - Scraping via Celery
 	- https://www.pythoncircle.com/post/518/scraping-10000-tweets-in-60-seconds-using-celery-rabbitmq-and-docker-cluster-with-rotating-proxy/
 
@@ -64,5 +65,4 @@ $ cd ~ && cd web_scraping &&  docker-compose -f  docker-compose.yml up
 	- https://gist.github.com/willprice/e07efd73fb7f13f917ea
 	- https://www.vinaygopinath.me/blog/tech/commit-to-master-branch-on-github-using-travis-ci/
 	- https://www.hidennis.tech/2015/07/07/deploy-blog-using-travis/
-
-
+</details>
