@@ -12,7 +12,7 @@ script:
   - echo ' ----------------- STEP 1)  ----------------- '
   #- docker build -t web_scraping_env . && docker run -it web_scraping_env /bin/bash -c "python cron_test.py && bash travis_push_github.sh"
   - python cron_indeed_scrapping_test.py
-  - ls output && ls logs 
+  - ls output && ls logs  && cat logs/log.txt 
 
 # deploy:
 #   provider: script
