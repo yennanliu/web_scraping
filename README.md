@@ -5,15 +5,25 @@ Collection of scrappers for different applications
 ### File structure 
 
 ``` 
+├── Dockerfile
 ├── README.md
-├── archive
-└── legacy_project
+├── api.                 : run celery monitor web server (via flask) 
+├── celery-queue         : define main web scrapping jobs (via celery)
+├── docker-compose.yml
+├── legacy_project       : save legacy projects 
+├── output
+├── requirements.txt
+└── travis_push_github.sh
 ```
 
 ### Quick start
-
 ```bash
-# refactor, dev 
+$ cd ~ && git clone https://github.com/yennanliu/web_scraping
+$ cd ~ && cd web_scraping &&  docker-compose -f  docker-compose.yml up 
+# visit the services via 
+# flower UI : http://localhost:5555/
+# Run a "add" task : http://localhost:5001/add/1/2
+# Run a "web scrape" task : http://localhost:5001/scrap_task
 ```
 
 ### Todo 
