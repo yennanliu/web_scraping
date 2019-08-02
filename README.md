@@ -65,4 +65,8 @@ $ cd ~ && cd web_scraping &&  docker-compose -f  docker-compose.yml up
 	- https://gist.github.com/willprice/e07efd73fb7f13f917ea
 	- https://www.vinaygopinath.me/blog/tech/commit-to-master-branch-on-github-using-travis-ci/
 	- https://www.hidennis.tech/2015/07/07/deploy-blog-using-travis/
+
+- Indeed scrapping 
+	- https://medium.com/@msalmon00/web-scraping-job-postings-from-indeed-96bd588dcb4b
+	- https://github.com/tarunsinghal92/indeedscrapperlatest
 </details>
