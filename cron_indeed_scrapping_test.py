@@ -6,7 +6,7 @@ import datetime
 from IndeedScrapper.indeed_scrapper import *
 
 # current date 
-current_date  = datetime.datetime.now().strftime('%Y-%m-%d')
+current_time, current_date  = datetime.datetime.now().strftime('%Y-%m-%d-%H:%M:%S'), datetime.datetime.now().strftime('%Y-%m-%d')
 
 # limit per sity
 max_results_per_city = 10
@@ -105,7 +105,7 @@ for city in city_set:
                     df.loc[num] = job_post
                     
                 #debug add
-                write_logs(('Completed =>') + '\t' + city  + '\t' + job_qry + '\t' + str(cnt) + '\t' + str(start) + '\t' + str(time.time() - startTime) + '\t' + ('file_' + str(file)))
+                write_logs(('Completed =>') + '\t' + city  + '\t' + job_qry + '\t' + str(cnt) + '\t' + str(start) + '\t' + str(time.time() - startTime) + '\t' + ('file_' + str(file)) + '  ' + str(current_time))
 
             #saving df as a local csv file 
             df.to_csv('output/{}_jobs_'.format(current_date) + str(file) + '.csv', encoding='utf-8')
@@ -113,7 +113,7 @@ for city in city_set:
         else:
 
             #debug add
-            write_logs(('Skipped =>') + '\t' + city  + '\t' + job_qry + '\t' + str(-1) + '\t' + str(-1) + '\t' + str(time.time() - startTime) + '\t' + ('file_' + str(file)))
+            write_logs(('Skipped =>') + '\t' + city  + '\t' + job_qry + '\t' + str(-1) + '\t' + str(-1) + '\t' + str(time.time() - startTime) + '\t' + ('file_' + str(file)) + '  ' + str(current_time))
         
         # increment file
         file = file + 1
