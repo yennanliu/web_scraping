@@ -31,7 +31,7 @@ upload_files() {
   #git remote add origin https://${GH_TOKEN}@github.com/yennanliu/web_scraping.git > /dev/null 2>&1
   #yes Y  | ( git remote set-url origin git@github.com:yennanliu/web_scraping.git  > /dev/null 2>&1 )
   #git push origin master --quiet
-  git push https://clownvary:${GITHUB_TOKEN}@${GH_REF} HEAD:master --quiet
+  git push https://clownvary:${GH_TOKEN}@${GH_REF} HEAD:master --quiet
 
 }
 
