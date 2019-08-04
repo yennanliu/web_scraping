@@ -61,6 +61,7 @@ $ cd ~ && cd web_scraping &&  docker-compose -f  docker-compose.yml up
 	- https://www.pythoncircle.com/post/518/scraping-10000-tweets-in-60-seconds-using-celery-rabbitmq-and-docker-cluster-with-rotating-proxy/
 
 - Travis push to github 
+	- https://stackoverflow.com/questions/51925941/travis-ci-how-to-push-to-master-branch
 	- https://medium.com/@preslavrachev/using-travis-for-secure-building-and-deployment-to-github-5a97afcac113
 	- https://gist.github.com/willprice/e07efd73fb7f13f917ea
 	- https://www.vinaygopinath.me/blog/tech/commit-to-master-branch-on-github-using-travis-ci/
