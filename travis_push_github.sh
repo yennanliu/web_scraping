@@ -1,5 +1,4 @@
 #!/bin/sh
-
 ####################################################################
 # MODIFY FROM https://gist.github.com/willprice/e07efd73fb7f13f917ea 
 ####################################################################
@@ -29,13 +28,14 @@ upload_files() {
   #git remote set-url origin git@github.com:yennanliu/web_scraping.git > /dev/null 2>&1
   #git remote add origin > /dev/null 2>&1
   #git push origin master --quiet
-
   #git remote add origin https://${GH_TOKEN}@github.com/yennanliu/web_scraping.git > /dev/null 2>&1
-  yes Y  | ( git remote set-url origin git@github.com:yennanliu/web_scraping.git  > /dev/null 2>&1 )
-  git push origin master --quiet
+  #yes Y  | ( git remote set-url origin git@github.com:yennanliu/web_scraping.git  > /dev/null 2>&1 )
+  #git push origin master --quiet
+  git push https://clownvary:${GITHUB_TOKEN}@${GH_REF} HEAD:master --quiet
 
 }
 
+GH_REF=github.com/yennanliu/web_scraping.git
 setup_git
 commit_output_file
 upload_files
