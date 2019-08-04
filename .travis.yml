@@ -14,7 +14,7 @@ script:
   - python cron_indeed_scrapping_test.py
   - ls output && ls logs  && cat logs/log.txt 
 after_success:
-  - bash travis_push_github.sh
+  - echo 'dev travis_push_github ...' #bash travis_push_github.sh
 # deploy:
 #   provider: script
 #   script: bash travis_push_github.sh
