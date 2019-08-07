@@ -18,8 +18,22 @@ commit_website_files() {
 commit_output_file() {
   git status 
   git add output/*
-  #git add . 
   git commit --m "Travis build  : $TRAVIS_BUILD_NUMBER"
+}
+
+commit_new_output_file() {
+  d=`date +%Y-%m-%d` && echo $d 
+  git status 
+  for file in "output"/*
+  do 
+    if [[ "$file" == *"$d"* ]];then
+      echo "no today's new file, nothing to commit"    
+    else 
+      echo "commit new file..."
+      git add output/* 
+      git commit --m "Travis build  : $TRAVIS_BUILD_NUMBER"
+    fi 
+  done
 }
 
 upload_files() {
@@ -30,5 +44,5 @@ upload_files() {
 
 GH_REF=github.com/yennanliu/web_scraping.git
 setup_git
-commit_output_file
+commit_new_output_file
 upload_files
