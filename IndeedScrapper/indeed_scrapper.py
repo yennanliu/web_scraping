@@ -5,7 +5,7 @@ import time
 import datetime
 from indeed_extract import *
 
-def main(city_set=['New+York'], job_set=['data+scientist'], max_results_per_city=10, file=1, SKIPPER=0):
+def Scrape_Runner(city_set=['New+York'], job_set=['data+scientist'], max_results_per_city=10, file=1, SKIPPER=0):
 
     # current date 
     current_time, current_date  = datetime.datetime.now().strftime('%Y-%m-%d-%H:%M:%S'), datetime.datetime.now().strftime('%Y-%m-%d')
@@ -103,6 +103,3 @@ def main(city_set=['New+York'], job_set=['data+scientist'], max_results_per_city
             
             # increment file
             file = file + 1
-
-if __name__ == '__main__':
-    main()
