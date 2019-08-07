@@ -3,7 +3,7 @@ import requests
 import pandas as pd
 import time 
 import datetime
-from IndeedScrapper.indeed_scrapper import *
+from IndeedScrapper.indeed_extract import *
 
 # current date 
 current_time, current_date  = datetime.datetime.now().strftime('%Y-%m-%d-%H:%M:%S'), datetime.datetime.now().strftime('%Y-%m-%d')
