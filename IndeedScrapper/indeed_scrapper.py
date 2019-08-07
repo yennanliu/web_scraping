@@ -3,7 +3,7 @@ import requests
 import pandas as pd
 import time 
 import datetime
-from indeed_extract import *
+from IndeedScrapper.indeed_extract import *
 
 def Scrape_Runner(city_set=['New+York'], job_set=['data+scientist'], max_results_per_city=10, file=1, SKIPPER=0):
 
