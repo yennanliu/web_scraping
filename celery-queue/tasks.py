@@ -3,6 +3,7 @@ import time
 import urllib.request as request
 from bs4 import BeautifulSoup
 from celery import Celery
+from IndeedScrapper.indeed_scrapper import Scrape_Runner
 
 CELERY_BROKER_URL = os.environ.get('CELERY_BROKER_URL', 'redis://localhost:6379'),
 CELERY_RESULT_BACKEND = os.environ.get('CELERY_RESULT_BACKEND', 'redis://localhost:6379')
@@ -17,3 +18,8 @@ def scrape():
 	soup = BeautifulSoup(page)
 	print (soup.text)
 	return soup.text
+
+@celery.task(name='tasks.indeed_scrap_task')
+def scrape():
+	Scrape_Runner()
+	

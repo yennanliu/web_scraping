@@ -1,13 +1,19 @@
-from flask import Flask
-from flask import url_for
-from worker import celery
+from flask import Flask, url_for
 import celery.states as states
+# udf 
+from worker import celery
 
 app = Flask(__name__)
 
 @app.route('/scrap_task')
 def run_scrap():
     task = celery.send_task('tasks.scrap_task',kwargs={})
+    response = f"<a href='{url_for('check_task', task_id=task.id, external=True)}'>check status of {task.id} </a>"
+    return response
+
+@app.route('/indeed_scrap_task')
+def run_indeed_scrap():
+    task = celery.send_task('tasks.indeed_scrap_task',kwargs={})
     response = f"<a href='{url_for('check_task', task_id=task.id, external=True)}'>check status of {task.id} </a>"
     return response
 
