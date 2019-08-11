@@ -6,5 +6,6 @@ ENV CELERY_RESULT_BACKEND redis://redis:6379/0
 ENV C_FORCE_ROOT true
 COPY . /queue
 WORKDIR /queue
-RUN pip install -r requirements.txt
+RUN pip install -r requirements.txt && \ 
+	echo `*** this is celery-queue file` && pwd && ls 
 ENTRYPOINT celery -A tasks worker --loglevel=info
