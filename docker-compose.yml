@@ -15,8 +15,6 @@ services:
       dockerfile: Dockerfile
     depends_on:
       - redis
-    environment: 
-      - PYTHONPATH=/app
   monitor:
     build:
       context: celery-queue
