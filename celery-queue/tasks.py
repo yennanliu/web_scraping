@@ -3,6 +3,8 @@ import time
 import urllib.request as request
 from bs4 import BeautifulSoup
 from celery import Celery
+import sys
+sys.path.append("IndeedScrapper/")
 from IndeedScrapper.indeed_scrapper import Scrape_Runner
 
 CELERY_BROKER_URL = os.environ.get('CELERY_BROKER_URL', 'redis://localhost:6379'),
