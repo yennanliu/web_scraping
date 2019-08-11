@@ -4,7 +4,7 @@ import urllib.request as request
 from bs4 import BeautifulSoup
 from celery import Celery
 import sys
-sys.path.append("IndeedScrapper/")
+sys.path.append("..")
 from IndeedScrapper.indeed_scrapper import Scrape_Runner
 
 CELERY_BROKER_URL = os.environ.get('CELERY_BROKER_URL', 'redis://localhost:6379'),
@@ -22,6 +22,6 @@ def scrape():
 	return soup.text
 
 @celery.task(name='tasks.indeed_scrap_task')
-def scrape():
+def indeed_scrape():
 	Scrape_Runner()
 	
