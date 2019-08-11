@@ -1,5 +1,7 @@
 from flask import Flask, url_for
 import celery.states as states
+import sys 
+sys.path.append("..")
 # udf 
 from worker import celery
 
