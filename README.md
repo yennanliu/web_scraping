@@ -7,16 +7,28 @@ Collection of scrapper pipelines build for different purposes
 ``` 
 ├── Dockerfile
 ├── README.md
-├── api.                 : run celery monitor web server (via flask) 
-├── celery-queue         : define main web scrapping jobs (via celery)
-├── docker-compose.yml
-├── legacy_project       : save legacy projects 
-├── output
+├── api.                  : Celery api (broker, job accepter(flask))
+│   ├── Dockerfile        : Dockerfile build celery api 
+│   ├── app.py            : Flask server accept job request(api)
+│   ├── requirements.txt
+│   └── worker.py         : Celery broker, celery backend(redis)
+├── celery-queue          : Run main web scrapping jobs (via celery)
+│   ├── Dockerfile        : Dockerfile build celery-queue
+│   ├── IndeedScrapper    : Scrapper scrape Indeed.com 
+│   ├── requirements.txt
+│   └── tasks.py          : Celery run scrapping tasks 
+├── cron_indeed_scrapping_test.py
+├── cron_test.py
+├── docker-compose.yml    : docker-compose build whole system : api, celery-queue, redis, and flower(celery job monitor)
+├── legacy_project        
+├── logs                  : Save running logs 
+├── output                : Save scraped data 
 ├── requirements.txt
-└── travis_push_github.sh
+└── travis_push_github.sh : Script auto push output to github via Travis 
+
 ```
 
-### Quick start
+### Quick Start
 <details>
 <summary>Quick start via docker</summary>
 
@@ -47,9 +59,6 @@ $ cd ~ && cd web_scraping &&  docker-compose -f  docker-compose.yml up
 <summary>TODO</summary>
 
 ```
-<details>
-
-
 ### Project level
 1. Dockerize the project 
 2. Run the scrapping (cron/paralel)jobs via Celery 
@@ -71,7 +80,6 @@ $ cd ~ && cd web_scraping &&  docker-compose -f  docker-compose.yml up
 
 ```
 </details>
-
 
 ### Ref 
 <details>
