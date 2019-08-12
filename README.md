@@ -17,20 +17,39 @@ Collection of scrapper pipelines build for different purposes
 ```
 
 ### Quick start
+<details>
+<summary>Quick start via docker</summary>
+
 ```bash
+# Run via docker 
 $ cd ~ && git clone https://github.com/yennanliu/web_scraping
 $ cd ~ && cd web_scraping &&  docker-compose -f  docker-compose.yml up 
 # visit the services via 
 # flower UI : http://localhost:5555/
 # Run a "add" task : http://localhost:5001/add/1/2
 # Run a "web scrape" task : http://localhost:5001/scrap_task
+# Run a "indeed scrape" task : http://localhost:5001/indeed_scrap_task
 ```
+</details>
+
+<details>
+<summary>Quick start manually</summary>
+
+```bash
+# Run manually 
+# dev 
+
+```
+</details>
 
 ### Todo 
 <details>
 <summary>TODO</summary>
 
 ```
+<details>
+
+
 ### Project level
 1. Dockerize the project 
 2. Run the scrapping (cron/paralel)jobs via Celery 
