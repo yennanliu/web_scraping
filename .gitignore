@@ -5,3 +5,4 @@
 *.ipynb_checkpoints
 .ipynb_checkpoints
 Indeed_scrapper_nb_V1.ipynb
+logs/log.txt
