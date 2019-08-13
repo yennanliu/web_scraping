@@ -32,9 +32,6 @@ class SendMail:
 
 def main(message, to, subject):
     try:
-        message='this is test msg'
-        to='f339339@hotmail.com'
-        subject='eamil from SendMail script'
         SendMail().send_mail(message, to, subject)
         print ('email sent!')
     except Exception as e:
