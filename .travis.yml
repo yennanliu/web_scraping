@@ -6,13 +6,13 @@ branches:
   only:
   - master
 notifications:
-email:
-  on_success: always
-  on_failure: always
-  recipients:
-    - f339339@gmail.com
-  template:
-    - 'this is test template'
+  email:
+    on_success: always
+    on_failure: always
+    recipients:
+      - f339339@gmail.com
+    template:
+      - 'this is test template'
 script:
   - echo ' ----------------- STEP 1)  ----------------- '
   #- docker build -t web_scraping_env . && docker run -it web_scraping_env /bin/bash -c "python cron_test.py && bash travis_push_github.sh"
