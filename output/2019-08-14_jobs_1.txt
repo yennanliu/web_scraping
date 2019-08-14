@@ -1,0 +1,11 @@
+,unique_id,city,job_qry,job_title,company_name,location,summary,salary,link,date,full_text
+1,p_baf234a5dd0cc155,New+York,data+scientist,Data Scientist,PepsiCo,"New York, NY",NOT_FOUND,NOT_FOUND,/rc/clk?jk=baf234a5dd0cc155&fccid=2973259ddc967948&vjs=3,4 hours ago,NOT_FOUND
+2,p_1942a17d2bd166e1,New+York,data+scientist,Jr. Data Scientist,Viacom,"New York, NY 10036",NOT_FOUND,NOT_FOUND,/rc/clk?jk=1942a17d2bd166e1&fccid=ae0c894528aa6eee&vjs=3,15 days ago,NOT_FOUND
+3,p_fa03c1992457a2b9,New+York,data+scientist,Data Scientist,AETNA,"New York, NY 10016 (Gramercy area)",NOT_FOUND,NOT_FOUND,/rc/clk?jk=fa03c1992457a2b9&fccid=7077d7e88049c02a&vjs=3,3 days ago,NOT_FOUND
+4,p_9c04b28a806b92ab,New+York,data+scientist,Data Scientist,Butterfly Network,"New York, NY",NOT_FOUND,NOT_FOUND,/rc/clk?jk=9c04b28a806b92ab&fccid=f34adc12ba09e47f&vjs=3,1 day ago,NOT_FOUND
+5,p_f6daa5cf3e224f5b,New+York,data+scientist,Data Scientist,"AbleTo, Inc.","New York, NY 10010 (Gramercy area)",NOT_FOUND,NOT_FOUND,/rc/clk?jk=f6daa5cf3e224f5b&fccid=954e57501f6bca1f&vjs=3,10 hours ago,NOT_FOUND
+6,p_7a578b59b17acc55,New+York,data+scientist,Machine Learning Data Scientist,UBS,"New York, NY",NOT_FOUND,NOT_FOUND,/rc/clk?jk=7a578b59b17acc55&fccid=1c76c3a36f6c7557&vjs=3,4 days ago,NOT_FOUND
+7,p_62769c201dded401,New+York,data+scientist,Data Scientist,WW International (formerly Weight Watchers),"New York, NY",NOT_FOUND,NOT_FOUND,/rc/clk?jk=62769c201dded401&fccid=c29a08660ede9319&vjs=3,30+ days ago,NOT_FOUND
+8,p_d19b36ecfcd4b8a7,New+York,data+scientist,Junior Data Scientist,"Remedy BPCI Partners, LLC.","New York, NY",NOT_FOUND,NOT_FOUND,/rc/clk?jk=d19b36ecfcd4b8a7&fccid=9744e569304da4d3&vjs=3,13 days ago,NOT_FOUND
+9,p_2646d9747e37d496,New+York,data+scientist,Junior Data Scientist,Remedy Partners,"New York, NY",NOT_FOUND,NOT_FOUND,/rc/clk?jk=2646d9747e37d496&fccid=3f0ffcc867369bf0&vjs=3,13 days ago,NOT_FOUND
+10,p_4f7dc642a14556eb,New+York,data+scientist,Data Scientist (NY),Debtsy,"New York, NY",NOT_FOUND,NOT_FOUND,/rc/clk?jk=4f7dc642a14556eb&fccid=ec3c520f9d48f531&vjs=3,26 days ago,NOT_FOUND
