@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-
 ##########################################################################################
 # MODIFY FROM  https://github.com/guzzijason/slack-upload-bash/blob/master/slack-upload.sh  
 ##########################################################################################
@@ -38,7 +37,6 @@ Usage() {
 }
 
 # Exit Vars
-
 : ${HELP:=0}
 : ${USAGE:=1}
 
@@ -47,7 +45,6 @@ API_URL='https://slack.com/api/files.upload'
 CURL_OPTS='-s'
 
 # main
-
 while getopts :c:f:s:u:hm:n:vx: OPT; do
   case ${OPT} in
     c)
