@@ -3,6 +3,7 @@ import requests
 import pandas as pd
 import time 
 import datetime
+import os 
 from IndeedScrapper.indeed_extract import *
 
 # current date 
@@ -17,6 +18,8 @@ city_set = ['New+York']
 # job roles
 job_set = ['data+scientist']
 
+# output dir 
+output_dir='./output'
 
 # file num
 file = 1
@@ -107,7 +110,9 @@ for city in city_set:
                 #debug add
                 write_logs(('Completed =>') + '\t' + city  + '\t' + job_qry + '\t' + str(cnt) + '\t' + str(start) + '\t' + str(time.time() - startTime) + '\t' + ('file_' + str(file)) + '  ' + str(current_time))
 
-            #saving df as a local csv file 
+            #saving df as a local csv file  
+            if not os.path.exists(output_dir):
+                os.mkdir(output_dir)
             df.to_csv('output/{}_jobs_'.format(current_date) + str(file) + '.csv', encoding='utf-8')
         
         else:
