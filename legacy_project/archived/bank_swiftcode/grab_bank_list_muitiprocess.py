@@ -1,6 +1,4 @@
 # python 3 
-
-
 # credit 
 # https://morvanzhou.github.io/tutorials/python-basic/multiprocessing/2-add/
 # https://morvanzhou.github.io/tutorials/python-basic/multiprocessing/3-queue/
@@ -10,10 +8,9 @@ import pandas as pd
 import urllib 
 # multiprocessing
 import multiprocessing as mp
-
 import sys
+
 sys.setrecursionlimit(10000) # 10000 is an example, try with different values
-#====================
 
 # help function 
 def parse_swift_code(swift_url):
@@ -33,14 +30,10 @@ def parse_swift_code(swift_url):
     except:
         return None
 
-#====================
-
 # main scrape function 
-
 # url list 
 url="http://www.swiftcodelist.com/banks/united-kingdom-{}.html"
 url_ = [url.format(x) for x in range(1,2)]
-
 
 def crawl(url):
 	print ('-------------')
@@ -114,13 +107,7 @@ def main_(url):
 	print (df_)
 	return df_ 
 
-
-
-
-#====================
-
 # parse job
-
 def multi_scrap():
 	#count =0
 	pool = mp.Pool(2)
@@ -150,18 +137,5 @@ def multi_scrap_():
 		parse_jobs = [pool.apply_async(parse, args=(data,)) for a in data]
 		results = [j.get() for j in parse_jobs]
 
-
-#====================
-
-
-
 if __name__ == '__main__':
 	multi_scrap_()
-
-
-
-
-
-
-
-

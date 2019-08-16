@@ -1,15 +1,8 @@
-# python 3 
-
-# grab weather data via https://www.wunderground.com/
-
-# ops 
 import pandas as pd
 import numpy as np 
 import datetime
 import urllib, json
 from bs4 import BeautifulSoup
-
-
 # UDF 
 from script.utility_data_IO import * 
 #from script.utility_operation import * 
@@ -21,10 +14,6 @@ cols = ['Mean Temperature', 'Max Temperature', 'Min Temperature',
         'Sea Level Pressure', 'Wind Speed', 'Max Wind Speed', 'Max Gust Speed',
         'Visibility', 'Events', 'timestamp']
 
-
-# -----------------
-# help function
-
 def col_fix(df):
     for col in cols:
         if col in df.columns:
@@ -32,10 +21,6 @@ def col_fix(df):
         else:
             df[col]  = None  
     return df 
-
-# -----------------
-
-
 
 def main_(start_date,end_date):
     output=pd.DataFrame([])
@@ -115,15 +100,7 @@ def main_(start_date,end_date):
     print (output)
     return output 
 
-
-
 if __name__ == '__main__':
     df_ = main_('1/1/2016', '12/31/2017')
     # dump to DB 
     write_data_to_db(df_, 'weather_ldn',db_url)
-
-
-
-
-
-

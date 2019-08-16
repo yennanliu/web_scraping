@@ -1,8 +1,3 @@
-# -*- coding: utf-8 -*-
-
-
-#=======================================
-
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
@@ -17,8 +12,6 @@ import argparse
 
 # parse parameter from command line to python 
 # https://docs.python.org/3/howto/argparse.html
-
-
 # open firefox as browser
 browser = webdriver.Firefox()
 # set up site url
@@ -26,6 +19,3 @@ browser = webdriver.Firefox()
 base_url = "https://www.glassdoor.com/Job/london-data-jobs-SRCH_IL.0,6_IC2671300_KE7,11.htm"
 print (base_url)
 browser.get(base_url)
-
-
-

@@ -1,11 +1,7 @@
-# python 3 
-
-
 from selenium import webdriver
 import time, re
 from bs4 import BeautifulSoup
 from urllib.request import urlopen
-
 
 # grab "steak restaurant "
 url = 'http://www.google.com'
@@ -17,7 +13,6 @@ driver = webdriver.Firefox()
 
 keywords = ['sss','jp','usa']
 keywords = ['日本']
-
 
 for keyword in keywords:
 	# access to website
@@ -36,5 +31,3 @@ for keyword in keywords:
 		print (item.text)
 	driver.implicitly_wait(10)
 	#driver.get(url)
-
-

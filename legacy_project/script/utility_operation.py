@@ -1,8 +1,4 @@
-# python 3 
-
 from selenium import webdriver 
-
-
 
 class Login():
 	def user_login(self,driver):
@@ -23,21 +19,3 @@ class Login():
 		driver.find_element_by_link_text("logout").click()
 		driver.quit()
 		print ('### log out success ###')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

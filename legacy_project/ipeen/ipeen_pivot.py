@@ -31,9 +31,3 @@ df_inter.columns = [['area','style','count']]
 df_pivot = pd.pivot_table(df_inter, values='count', index=['area'],columns=['style'], aggfunc=np.sum).fillna(0).T
 df_pivot_ = data_clean(df_pivot)
 df_pivot.to_csv('df_pivot_final.csv')
-
-
-
-
-
-

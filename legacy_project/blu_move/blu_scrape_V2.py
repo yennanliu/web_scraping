@@ -5,11 +5,8 @@ import os
 # user defined function 
 from utility_data_IO import * 
 
-
 db_url = os.environ['db_url']
 print ('db_url : ' , db_url)
-
-
 
 def get_json():
 	# read json from shell scraper (blu_scrape_V2.sh)
@@ -17,9 +14,6 @@ def get_json():
 	    blu_data = json.load(json_file)
 	return blu_data
 
- 
-
- 
 def main_(write_to_db=False):
 	blu_data = get_json()
 	# prepare data, parese needed columns 
@@ -81,12 +75,5 @@ def main_(write_to_db=False):
 
 	return df_
 
-
-
-
 if __name__ == '__main__':
 	main_(write_to_db = True)
-
-
-
-

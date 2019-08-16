@@ -2,9 +2,6 @@
 
 # https://www.a2hosting.co.uk/kb/developer-corner/mysql/mysql-stored-functions-and-procedures
 
-
-
-
 #  stored function
 DELIMITER $$
 CREATE FUNCTION plus(temp_max FLOAT, temp_min FLOAT) RETURNS DECIMAL(9,2)
@@ -30,14 +27,3 @@ DELIMITER ;
 
 # execute 
 CALL procedureTest() \G
-
-
-
-
-
-
-
-
-
-
-

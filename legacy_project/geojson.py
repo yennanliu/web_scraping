@@ -1,5 +1,3 @@
-
-
 toy_json = {
     "type": "MultiPolygon",
     "coordinates": [
@@ -17,6 +15,4 @@ toy_json = {
 
 
 def make_multiple_polygon(coordinates_set1,coordinates_set2):
-
 	pass 
-

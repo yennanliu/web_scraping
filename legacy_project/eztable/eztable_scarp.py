@@ -1,6 +1,3 @@
-# python 3 
-
-
 from selenium import webdriver
 import time, re
 from bs4 import BeautifulSoup

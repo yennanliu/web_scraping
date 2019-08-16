@@ -1,8 +1,4 @@
-
-
 from scrap import *
-
-
 
 def get_data():
 	output = pd.DataFrame()
@@ -56,17 +52,7 @@ class db_manipulation:
 		except:
 			print ('dump DB failed')
 
-
-
-
 if __name__ == '__main__':
 	db_job = db_manipulation()
 	db_job.dumb2db()
 	#dump_db()
-
-
-
-
-
-
-

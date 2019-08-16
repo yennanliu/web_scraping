@@ -10,13 +10,12 @@ from bs4 import BeautifulSoup
 import urllib, json
 import pandas as pd, numpy as np
 import sys ,re,time
-
 # transform chinese into web url in python 3 
 # https://stackoverflow.com/questions/1695183/how-to-percent-encode-url-parameters-in-python/13625238#13625238
 from urllib.parse import quote
-
 # parse parameter from command line to python 
 import argparse
+
 parser = argparse.ArgumentParser()
 parser.add_argument('nums', nargs='*')
 #parser.add_argument("echo")
@@ -31,10 +30,6 @@ area = quote(search_string)
 
 print ('===========')
 
-
-
-# help function 
-
 def url_fix(x):
     return 'http://www.ipeen.com.tw' + x
 
@@ -43,8 +38,6 @@ def parse_area(x):
 		return x[3:6]
 	else:
 		return ''
-
-
 
 def grab_raw(area):
     output = [[] for k in range(4)]
@@ -91,7 +84,3 @@ def grab_df():
 
 if __name__ == '__main__':
 	grab_df()
-
-
-
-

@@ -1,7 +1,3 @@
-# python 3 
-
-# grab weather data via https://www.wunderground.com/
-
 # ops 
 import pandas as pd
 import numpy as np 
@@ -9,8 +5,7 @@ import datetime
 import urllib, json
 from bs4 import BeautifulSoup
 
-
-# UDF 
+# UDF
 from script.utility_data_IO import * 
 #from script.utility_operation import * 
 #import utility_data_IO
@@ -21,10 +16,6 @@ cols = ['Mean Temperature', 'Max Temperature', 'Min Temperature',
         'Sea Level Pressure', 'Wind Speed', 'Max Wind Speed', 'Max Gust Speed',
         'Visibility', 'Events', 'timestamp']
 
-
-# -----------------
-# help function
-
 def col_fix(df):
     for col in cols:
         if col in df.columns:
@@ -32,10 +23,6 @@ def col_fix(df):
         else:
             df[col]  = None  
     return df 
-
-# -----------------
-
-
 
 def main_(start_date,end_date):
     output=pd.DataFrame([])
@@ -133,17 +120,9 @@ def main_(start_date,end_date):
     print (output.head())
     return output 
 
-
-
 if __name__ == '__main__': 
     df_ = main_('1/1/2018', '1/31/2018')
     #df_ = main_('2/1/2016', '2/10/2016')
     print (df_)
     # dump to DB 
     write_data_to_db(df_, 'weather_brussels',db_url)
-
-
-
-
-
-

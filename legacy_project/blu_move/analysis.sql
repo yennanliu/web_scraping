@@ -1,4 +1,3 @@
-
 -- 1. Duration period 
 -- get duration period (minute) per booking per car 
 
@@ -113,18 +112,3 @@ WHERE row_id = 1
   AND row_id_ = 1
 ORDER BY id,
          start_reservation, date
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

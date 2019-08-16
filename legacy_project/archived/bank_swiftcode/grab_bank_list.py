@@ -2,10 +2,7 @@
 from bs4 import BeautifulSoup
 import pandas as pd 
 import urllib 
-
-
 # help function 
-
 def parse_swift_code(swift_url):
     try:
         opener=urllib.request.build_opener()
@@ -22,7 +19,6 @@ def parse_swift_code(swift_url):
     except:
         return None
 
-
 def clean_df(df):
 	# drop any col, row with null value 
 	#df_ = df.dropna()
@@ -35,9 +31,6 @@ def clean_df(df):
 	          (df_.bank_name != 'DMCA Policy') |
 	          (df_.bank_name != 'Contact Us') ]
 	return df_ 
-
-
-# main scrape function 
 
 def main_():
 
@@ -77,15 +70,5 @@ def main_():
 	#df_ =clean_df(df_)
 	df_.to_csv('UK_bank_swift_code_list.csv')
 
-
-
 if __name__ == '__main__':
 	main_()
-
-
-
-
-
-
-
-

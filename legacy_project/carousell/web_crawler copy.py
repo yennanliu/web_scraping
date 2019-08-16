@@ -8,18 +8,6 @@ import sys
 import subprocess
 import json
 
-
-
-# Chat 
-# ipeen 
-# Carousell 
-# ptt 
-# airbnb
-# spotify
-
-
-# ====================================================
-
 def regular_chat():
 	sample_response = ['HI THERE', 'WAZZA UP','R U KIDDING ME', '..?']
 	response = sample_response[random.randint(0,3)]
@@ -40,14 +28,8 @@ have fun :) \n
 	"""
 	print (sample_response)
 	return sample_response
-
-
-# ====================================================
-
+	
 # Spotify 
-
-
-
 def spotify_album(artist):
 	# make sure artist name feat spotify API query form 
 	artist = artist.replace (" ", "+")
@@ -75,14 +57,7 @@ def spotify_album(artist):
 	os.system('rm spotify_data.json')
 	return album
 	
-
-
-
-# ====================================================
-
 # Carousell
-
-
 def Caro_grab_(query):
 	url = 'https://tw.carousell.com/search/products/?query={}'
 	url=url.format(query)
@@ -102,7 +77,6 @@ def Caro_grab_(query):
 	print (content)
 	return content[:600]
 
-
 def Caro_grab():
 	url = 'https://tw.carousell.com/?hl=en'
 	opener=urllib.request.build_opener()
@@ -121,15 +95,7 @@ def Caro_grab():
 	print (content)
 	return content[:600]
 
-
-
-
-
-# ====================================================
-
 ### ipeen
-
-
 def ipeen_grab():
 	output = [[] for k in range(2)]
 	for page in range(1,5):
@@ -150,12 +116,7 @@ def ipeen_grab():
 	# limit number of query response here, since there may be limit in msg length 
 	return data[:600]
 
-
-# ==================================================== 
-
 ### ptt beauty 
-
-
 def ptt_beauty():
 	url = 'https://www.ptt.cc/bbs/Beauty/index.html'
 	rs = requests.session()
@@ -179,19 +140,5 @@ def ptt_beauty():
 	print (content)
 	return content
 
-
-
-# ====================================================
-
 if __name__ == "__main__":
 	spotify_album('pete rock')
-	#Caro_grab()
-	#regular_chat()
-	#ptt_beauty()
-	#pttBeauty()
-
-
-
-
-
-

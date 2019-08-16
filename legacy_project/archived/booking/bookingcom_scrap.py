@@ -1,8 +1,3 @@
-# -*- coding: utf-8 -*-
-
-
-#=======================================
-
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
@@ -22,8 +17,6 @@ parser.add_argument("echo")
 args = parser.parse_args()
 print(args.echo)
 print ('===========')
-
-
 # open firefox as browser
 browser = webdriver.Firefox()
 # set up site url 
@@ -32,9 +25,8 @@ base_url="https://www.booking.com/searchresults.zh-tw.html?aid=304142&label=gen1
 print (base_url)
 base_url = base_url.format(args.echo)
 browser.get(base_url)
+page = 0    
 
-
-page = 0                              
 #while len(soup.select('.paging-start')) > 0:
 while page < 2:
 	page += 1 
@@ -50,10 +42,3 @@ while page < 2:
 		time.sleep(1)
 	except Exception as e:
 		print e, 'something failed'
-
-
-#browser.close()
-
-
-
-

@@ -1,12 +1,10 @@
 # credit : https://ianlondon.github.io/blog/web-scraping-discovering-hidden-apis/
 # scrape in public home page 
-
 #import library 
 from bs4 import BeautifulSoup
 import urllib, json
 import pandas as pd
 import sys ,re,time
-
 
 url="https://app.bluemove.es/api/public/locations/list?cityId=100&accountId=1"
 
@@ -53,15 +51,5 @@ def main_():
 	df_.columns = [['id','gpslat','gpslong','gps_timestamp','status']]
 	print (df_) 
 
-
-
-
 if __name__ == '__main__':
 	main_()
-
-
-
-
-
-
-

@@ -1,7 +1,5 @@
 import pandas as pd 
 
-
-
 def data_prepare():
 	df = pd.read_csv('blu.csv')
 	#df = df 
@@ -17,8 +15,6 @@ def data_prepare():
 	df['reservation_time'] = df['end_reservation'] - df['start_reservation']
 	print (df.head(3))
 	return df 
-
-
-
+	
 if __name__ == '__main__':
 	data_prepare()

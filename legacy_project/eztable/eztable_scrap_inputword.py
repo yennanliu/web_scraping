@@ -1,6 +1,3 @@
-# python 3 
-
-
 from selenium import webdriver
 import time, re
 from bs4 import BeautifulSoup
@@ -31,5 +28,3 @@ for keyword in keywords:
 	for block in soup.find_all('h5'):
 		print (block.text)
 	time.sleep(3)
-
-

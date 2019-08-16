@@ -1,10 +1,8 @@
-
 import pandas as pd
 import numpy as np 
 import datetime
 import urllib, json
 from bs4 import BeautifulSoup
-
 
 def get_weather_data(year,month):
 	#url_ = "https://www.wunderground.com/history/airport/EDDT/2014/12/01/MonthlyCalendar.html?req_city=Werftpfuhl&req_statename=Germany&reqdb.zip=00000&reqdb.magic=46&reqdb.wmo=10389#calendar"
@@ -48,13 +46,3 @@ def get_weather_data(year,month):
 	output_['CET'] = np.array(datetime_.CET)
 	print (output_)
 	return output_
-
-
-
-
-
-
-
-
-
-

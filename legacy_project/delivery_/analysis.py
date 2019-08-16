@@ -1,8 +1,6 @@
 from scrap import *
 from data2db import *
 
-
-
 def get_values():
 
 	sql0="""
@@ -46,10 +44,3 @@ WHERE avg_day_temp =
 
 if __name__ == '__main__':
 	get_values()
-
-
-
-
-
-
-

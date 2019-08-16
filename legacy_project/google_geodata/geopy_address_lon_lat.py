@@ -1,25 +1,17 @@
 # -*- coding: utf-8 -*-
-
 # ref 
 # https://pypi.python.org/pypi/geopy
-
-
 # todo : deal with geopy request limit 
 # https://stackoverflow.com/questions/30108786/how-to-deal-with-geopys-query-limit
 # install Nominatim on server 
 # https://wiki.openstreetmap.org/wiki/Nominatim/Installation
-
-
 # work around 
 # https://www.shanelynn.ie/batch-geocoding-in-python-with-google-geocoding-api/
-
 import numpy as np 
 import time
 import requests
 import os 
 from geopy.geocoders import Nominatim
-
-
 
 def address_2_lonlat(x):
     print (x)
@@ -33,8 +25,6 @@ def address_2_lonlat(x):
         print (e)
         print ('fail to convert address to lon & lat ') 
         return [None,None]
-
-
 
 def address_2_lonlat_hack(x):
     """
@@ -60,12 +50,6 @@ def address_2_lonlat_hack(x):
             print ('fail to convert address to lon & lat ') 
         return [None,None]
 
-
-
-
-# help function 
-# ------------- 
-
 def split_lat(x):
     try:
         return x[0]
@@ -78,21 +62,9 @@ def split_lon(x):
     except:
         return None 
 
-
-# work function 
-# ------------- 
-
-
 def run_hack(df):
     """
     df :
     id, address zipcode , lat lon 
     """
-    pass 
-
-
-
-
-
-
-        
+    pass         

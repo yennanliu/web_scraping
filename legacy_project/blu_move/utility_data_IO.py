@@ -4,16 +4,12 @@ from pytz import timezone
 import datetime
 import os
 
-
 european = timezone('Europe/Madrid')
 now_tz = datetime.datetime.now(tz = european)
 now = now_tz.replace(tzinfo = None)
 now = now.replace(microsecond = 0)
-
 db_url = os.environ['db_url']
 print ('db_url : ' , db_url)
-
-
 
 def write_data_to_db(df, table_name,db_url):
     try:
@@ -32,6 +28,4 @@ def write_data_to_db(df, table_name,db_url):
     except Exception as e:
         print (e)
         print ('fail to write to db')
-        
-
         
