@@ -18,7 +18,7 @@ city_set = ['New+York', 'Singapore', 'Tokyo']
 
 
 # job roles
-job_set = ['data+engineer', 'data+scientist']
+job_set = ['data+engineer']
 
 # output dir 
 output_dir='./output'
