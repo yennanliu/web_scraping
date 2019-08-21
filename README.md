@@ -2,6 +2,10 @@
 
 Collection of scrapper pipelines build for different purposes 
 
+[![Build Status](https://travis-ci.org/yennanliu/web_scraping.svg?branch=master)](https://travis-ci.org/yennanliu/web_scraping)
+(https://coveralls.io/github/yennanliu/XJob)
+[![PRs](https://img.shields.io/badge/PRs-welcome-6574cd.svg)](https://github.com/yennanliu/web_scraping/pulls)
+
 ### File structure 
 
 ``` 
