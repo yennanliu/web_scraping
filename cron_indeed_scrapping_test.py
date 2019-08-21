@@ -10,10 +10,12 @@ from IndeedScrapper.indeed_extract import *
 current_time, current_date  = datetime.datetime.now().strftime('%Y-%m-%d-%H:%M:%S'), datetime.datetime.now().strftime('%Y-%m-%d')
 
 # limit per sity
-max_results_per_city = 100
+max_results_per_city = 10
 
 # db of city 
-city_set = ['New+York']
+city_set = ['New+York', 'San+Francisco']
+city_set = ['New+York', 'Singapore', 'Tokyo']
+
 
 # job roles
 job_set = ['data+scientist']
@@ -47,7 +49,16 @@ for city in city_set:
             for start in range(0, max_results_per_city, 10):
 
                 # get dom 
-                page = requests.get('http://www.indeed.com/jobs?q=' + job_qry +'&l=' + str(city) + '&start=' + str(start))
+
+                # hot fix here for Asia city scrapping (will optimize it then)
+                if city=='Singapore':
+                    page = requests.get('http://www.indeed.com.sg/jobs?q=' + job_qry +'&l=' + str(city) + '&start=' + str(start))
+
+                elif city=='Tokyo':
+                    page = requests.get('https://jp.indeed.com/jobs?q=' + job_qry +'&l=' + str(city) + '&start=' + str(start))
+
+                else:
+                    page = requests.get('http://www.indeed.com/jobs?q=' + job_qry +'&l=' + str(city) + '&start=' + str(start))
 
                 #ensuring at least 1 second between page grabs                    
                 time.sleep(1)  
@@ -113,7 +124,7 @@ for city in city_set:
             #saving df as a local csv file  
             if not os.path.exists(output_dir):
                 os.mkdir(output_dir)
-            df.to_csv('output/{}_jobs_'.format(current_date) + str(file) + '.csv', encoding='utf-8')
+            df.to_csv('output/{}_jobs_'.format(current_date) + str(city) + '.csv', encoding='utf-8')
         
         else:
 
