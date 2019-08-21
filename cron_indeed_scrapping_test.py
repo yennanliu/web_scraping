@@ -10,7 +10,7 @@ from IndeedScrapper.indeed_extract import *
 current_time, current_date  = datetime.datetime.now().strftime('%Y-%m-%d-%H:%M:%S'), datetime.datetime.now().strftime('%Y-%m-%d')
 
 # limit per sity
-max_results_per_city = 10
+max_results_per_city = 100
 
 # db of city 
 city_set = ['New+York', 'San+Francisco']
@@ -18,7 +18,7 @@ city_set = ['New+York', 'Singapore', 'Tokyo']
 
 
 # job roles
-job_set = ['data+scientist']
+job_set = ['data+engineer', 'data+scientist']
 
 # output dir 
 output_dir='./output'
