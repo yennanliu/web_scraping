@@ -100,4 +100,7 @@ $ cd ~ && cd web_scraping &&  docker-compose -f  docker-compose.yml up
 - Indeed scrapping 
 	- https://medium.com/@msalmon00/web-scraping-job-postings-from-indeed-96bd588dcb4b
 	- https://github.com/tarunsinghal92/indeedscrapperlatest
+
+- Distributed scrapping
+	- https://github.com/tikazyq/crawlab
 </details>
