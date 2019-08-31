@@ -4,7 +4,9 @@ import pandas as pd
 import time 
 import datetime
 import os 
-from IndeedScrapper.indeed_extract import *
+#from IndeedScrapper.indeed_extract import *
+from celery_queue.IndeedScrapper.indeed_extract import *
+
 
 # current date 
 current_time, current_date  = datetime.datetime.now().strftime('%Y-%m-%d-%H:%M:%S'), datetime.datetime.now().strftime('%Y-%m-%d')
@@ -13,7 +15,7 @@ current_time, current_date  = datetime.datetime.now().strftime('%Y-%m-%d-%H:%M:%
 max_results_per_city = 300
 
 # db of city 
-city_set = ['New+York', 'San+Francisco']
+#city_set = ['New+York', 'San+Francisco']
 city_set = ['New+York', 'Singapore', 'Tokyo']
 
 
