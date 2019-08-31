@@ -11,13 +11,13 @@ services:
       - redis
   worker:
     build:
-      context: ./celery-queue
+      context: ./celery_queue
       dockerfile: Dockerfile
     depends_on:
       - redis
   monitor:
     build:
-      context: ./celery-queue
+      context: ./celery_queue
       dockerfile: Dockerfile
     ports:
      - "5555:5555"
