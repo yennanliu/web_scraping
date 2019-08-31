@@ -56,9 +56,10 @@ def extract_summary(div):
  
 
 # extract link of job description 
-def extract_link(div): 
+def extract_link(div, city=None): 
     for a in div.find_all(name='a', attrs={'data-tn-element':'jobTitle'}):
-        return (a['href'])
+        #return (a['href'])
+        return get_full_job_link(a['href'], city)
     return('NOT_FOUND')
 
 
@@ -92,3 +93,13 @@ def write_logs(text):
     f = open('logs/log.txt','a')
     f.write(text + '\n')  
     f.close()
+
+
+# get full job link with country code 
+def get_full_job_link(link, city):
+    if city=="Singapore":
+        return "https://www.indeed.com.sg/" + link
+    elif city =="Tokyo":
+        return "https://jp.indeed.com/" + link
+    else:
+        return link 

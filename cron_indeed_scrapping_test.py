@@ -4,7 +4,6 @@ import pandas as pd
 import time 
 import datetime
 import os 
-#from IndeedScrapper.indeed_extract import *
 from celery_queue.IndeedScrapper.indeed_extract import *
 
 
@@ -12,7 +11,7 @@ from celery_queue.IndeedScrapper.indeed_extract import *
 current_time, current_date  = datetime.datetime.now().strftime('%Y-%m-%d-%H:%M:%S'), datetime.datetime.now().strftime('%Y-%m-%d')
 
 # limit per sity
-max_results_per_city = 300
+max_results_per_city = 5
 
 # db of city 
 #city_set = ['New+York', 'San+Francisco']
@@ -108,7 +107,7 @@ for city in city_set:
                     job_post.append(extract_salary(div))
 
                     #grabbing link
-                    link = extract_link(div)
+                    link = extract_link(div, city)
                     job_post.append(link)
 
                     #grabbing date
