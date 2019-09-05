@@ -14,12 +14,10 @@ current_time, current_date  = datetime.datetime.now().strftime('%Y-%m-%d-%H:%M:%
 max_results_per_city = 10
 
 # db of city 
-#city_set = ['New+York', 'San+Francisco']
-city_set = ['New+York', 'Singapore', 'Tokyo']
-
+city_set = ['New+York', 'San+Francisco','Singapore','Tokyo']
 
 # job roles
-job_set = ['data+engineer', 'machine+learning+engineer']
+job_set = ['data+engineer', 'machine+learning+engineer', 'data+scientist']
 
 # output dir 
 output_dir='./output'

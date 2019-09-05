@@ -99,7 +99,9 @@ def write_logs(text):
 def get_full_job_link(link, city):
     if city=="Singapore":
         return "https://www.indeed.com.sg/" + link
+
     elif city =="Tokyo":
         return "https://jp.indeed.com/" + link
+        
     else:
-        return link 
+        return "https://www.indeed.com" + link 
