@@ -11,7 +11,7 @@ from celery_queue.IndeedScrapper.indeed_extract import *
 current_time, current_date  = datetime.datetime.now().strftime('%Y-%m-%d-%H:%M:%S'), datetime.datetime.now().strftime('%Y-%m-%d')
 
 # limit per sity
-max_results_per_city = 500
+max_results_per_city = 10
 
 # db of city 
 #city_set = ['New+York', 'San+Francisco']
@@ -19,7 +19,7 @@ city_set = ['New+York', 'Singapore', 'Tokyo']
 
 
 # job roles
-job_set = ['data+engineer']
+job_set = ['data+engineer', 'machine+learning+engineer']
 
 # output dir 
 output_dir='./output'
@@ -126,7 +126,7 @@ for city in city_set:
             if not os.path.exists(output_dir):
                 os.mkdir(output_dir)
             df = df.sort_values('date') # sort the df by job post date
-            df.to_csv('output/{}_jobs_'.format(current_date) + str(city) + '.csv', encoding='utf-8')
+            df.to_csv('output/{}_jobs_{}_{}'.format(current_date, str(city).replace('+','_'), str(job_qry).replace('+','_'))  + '.csv', encoding='utf-8')
         
         else:
 
