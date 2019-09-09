@@ -63,10 +63,12 @@ $ cd ~ && cd web_scraping &&  docker-compose -f  docker-compose.yml up
 
 ```
 ### Project level
+
+0. Deploy to Heroku cloud and make the scrapper as an API service 
 1. Dockerize the project 
 2. Run the scrapping (cron/paralel)jobs via Celery 
-3. Deploy to Heroku cloud 
-4. Add test 
+4. Add test (unit/integration test) 
+5. Design DB model that save scrapping data systematically 
 
 ### Programming level 
 1. Add utility scripts that can get XPATH of all objects in html
