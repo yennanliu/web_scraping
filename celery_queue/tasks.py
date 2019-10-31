@@ -26,7 +26,7 @@ def indeed_scrape():
     Scrape_Runner()
 
 @celery.task(name='tasks.indeed_scrap_task_api')
-def indeed_scrape_api():
+def indeed_scrape_api(city_set):
     sys.path.append("..")
     from IndeedScrapper.indeed_scrapper import Scrape_Runner
     Scrape_Runner(city_set)
