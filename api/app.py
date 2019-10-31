@@ -22,7 +22,7 @@ def run_indeed_scrap():
 @app.route('/indeed_scrap_api_V1/<string:city_set>')
 def run_indeed_scrap_api(city_set: str):
     print ('city_set :', city_set)
-    task = celery.send_task('tasks.indeed_scrap_task_api',kwargs={city_set})
+    task = celery.send_task('tasks.indeed_scrap_task_api',city_set,kwargs={})
     response = f"<a href='{url_for('check_task', task_id=task.id, external=True)}'>check status of {task.id} </a>"
     return response
 
