@@ -11,17 +11,23 @@ celery = Celery('tasks', broker=CELERY_BROKER_URL, backend=CELERY_RESULT_BACKEND
 
 @celery.task(name='tasks.scrap_task')
 def scrape():
-	url = 'https://github.com/apache/spark'
-	opener=request.build_opener()
-	opener.addheaders = [('User-agent', 'Mozilla/5.0')]
-	page = opener.open(url)
-	soup = BeautifulSoup(page)
-	print (soup.text)
-	return soup.text
+    url = 'https://github.com/apache/spark'
+    opener=request.build_opener()
+    opener.addheaders = [('User-agent', 'Mozilla/5.0')]
+    page = opener.open(url)
+    soup = BeautifulSoup(page)
+    print (soup.text)
+    return soup.text
 
 @celery.task(name='tasks.indeed_scrap_task')
 def indeed_scrape():
-	sys.path.append("..")
-	from IndeedScrapper.indeed_scrapper import Scrape_Runner
-	Scrape_Runner()
-	
+    sys.path.append("..")
+    from IndeedScrapper.indeed_scrapper import Scrape_Runner
+    Scrape_Runner()
+
+@celery.task(name='tasks.indeed_scrap_task_api')
+def indeed_scrape_api():
+    sys.path.append("..")
+    from IndeedScrapper.indeed_scrapper import Scrape_Runner
+    Scrape_Runner(city_set)
+    
