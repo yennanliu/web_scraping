@@ -97,6 +97,7 @@ def write_logs(text):
 
 # get full job link with country code 
 def get_full_job_link(link, city):
+    
     if city=="Singapore":
         return "https://www.indeed.com.sg/" + link
 
