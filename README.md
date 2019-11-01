@@ -1,8 +1,7 @@
 <h1 align="center">WEB SCRAPING</a></h1>
 
-<h4 align="center">Collection of scrapper pipelines build for different purposes with job queue system design/implementation demo
-</h4>
-
+<h5 align="center">Collection of scrapper pipelines build for different purposes with job queue system design/implementation demo
+</h5>
 
 <p align="center">
 <!--- travis -->
@@ -10,6 +9,13 @@
 <!--- PR -->
 <a href="https://github.com/yennanliu/web_scraping/pulls"><img src="https://img.shields.io/badge/PRs-welcome-6574cd.svg"></a>
 </p>
+
+### Tech
+* [Celery](http://docs.celeryproject.org/en/latest/getting-started/first-steps-with-celery.html)
+* [Redis](https://redis.io/)
+* [Flower](https://flower.readthedocs.io/en/latest/)
+* [Flask](http://flask.palletsprojects.com/en/1.1.x/)
+* [Docker](https://www.docker.com/get-started)
 
 ### File structure 
 
@@ -45,12 +51,13 @@
 # Run via docker 
 $ cd ~ && git clone https://github.com/yennanliu/web_scraping
 $ cd ~ && cd web_scraping &&  docker-compose -f  docker-compose.yml up 
-# visit the services via 
-# flower UI : http://localhost:5555/
-# Run a "add" task : http://localhost:5001/add/1/2
-# Run a "web scrape" task : http://localhost:5001/scrap_task
-# Run a "indeed scrape" task : http://localhost:5001/indeed_scrap_task
 ```
+- visit the services via 
+	- flower UI : http://localhost:5555/
+	- Run "add" task : http://localhost:5001/add/1/2
+	- Run "web scrape" task : http://localhost:5001/scrap_task
+	- Run "indeed scrape" task : http://localhost:5001/indeed_scrap_task
+
 </details>
 
 <details>
