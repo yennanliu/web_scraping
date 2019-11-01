@@ -1,47 +1,10 @@
-<h1 align="center">WEB SCRAPING</a></h1>
+# web_scraping
 
-<h5 align="center">Collection of scrapper pipelines build for different purposes with job queue system design/implementation demo
-</h5>
+Collection of scrapper pipelines build for different purposes 
 
-<p align="center">
-<!--- travis -->
-<a href="https://travis-ci.org/yennanliu/web_scraping"><img src="https://travis-ci.org/yennanliu/web_scraping.svg?branch=master)](https://travis-ci.org/yennanliu/web_scraping"></a>
-<!--- PR -->
-<a href="https://github.com/yennanliu/web_scraping/pulls"><img src="https://img.shields.io/badge/PRs-welcome-6574cd.svg"></a>
-</p>
+[![Build Status](https://travis-ci.org/yennanliu/web_scraping.svg?branch=master)](https://travis-ci.org/yennanliu/web_scraping)
+[![PRs](https://img.shields.io/badge/PRs-welcome-6574cd.svg)](https://github.com/yennanliu/web_scraping/pulls)
 
-### Tech
-* [Celery](http://docs.celeryproject.org/en/latest/getting-started/first-steps-with-celery.html)
-* [Redis](https://redis.io/)
-* [Flower](https://flower.readthedocs.io/en/latest/)
-* [Flask](http://flask.palletsprojects.com/en/1.1.x/)
-* [Docker](https://www.docker.com/get-started)
-
-### File structure 
-
-``` 
-├── Dockerfile
-├── README.md
-├── api.                  : Celery api (broker, job accepter(flask))
-│   ├── Dockerfile        : Dockerfile build celery api 
-│   ├── app.py            : Flask server accept job request(api)
-│   ├── requirements.txt
-│   └── worker.py         : Celery broker, celery backend(redis)
-├── celery-queue          : Run main web scrapping jobs (via celery)
-│   ├── Dockerfile        : Dockerfile build celery-queue
-│   ├── IndeedScrapper    : Scrapper scrape Indeed.com 
-│   ├── requirements.txt
-│   └── tasks.py          : Celery run scrapping tasks 
-├── cron_indeed_scrapping_test.py
-├── cron_test.py
-├── docker-compose.yml    : docker-compose build whole system : api, celery-queue, redis, and flower(celery job monitor)
-├── legacy_project        
-├── logs                  : Save running logs 
-├── output                : Save scraped data 
-├── requirements.txt
-└── travis_push_github.sh : Script auto push output to github via Travis 
-
-```
 
 ### Quick Start
 <details>
@@ -69,6 +32,41 @@ $ cd ~ && cd web_scraping &&  docker-compose -f  docker-compose.yml up
 
 ```
 </details>
+
+
+### File structure 
+
+``` 
+├── Dockerfile
+├── README.md
+├── api.                  : Celery api (broker, job accepter(flask))
+│   ├── Dockerfile        : Dockerfile build celery api 
+│   ├── app.py            : Flask server accept job request(api)
+│   ├── requirements.txt
+│   └── worker.py         : Celery broker, celery backend(redis)
+├── celery-queue          : Run main web scrapping jobs (via celery)
+│   ├── Dockerfile        : Dockerfile build celery-queue
+│   ├── IndeedScrapper    : Scrapper scrape Indeed.com 
+│   ├── requirements.txt
+│   └── tasks.py          : Celery run scrapping tasks 
+├── cron_indeed_scrapping_test.py
+├── cron_test.py
+├── docker-compose.yml    : docker-compose build whole system : api, celery-queue, redis, and flower(celery job monitor)
+├── legacy_project        
+├── logs                  : Save running logs 
+├── output                : Save scraped data 
+├── requirements.txt
+└── travis_push_github.sh : Script auto push output to github via Travis 
+
+```
+
+### Tech
+* [Celery](http://docs.celeryproject.org/en/latest/getting-started/first-steps-with-celery.html) : parallel/single thread python tasks management tool
+* [Redis](https://redis.io/)  : key-value DB save task darta 
+* [Flower](https://flower.readthedocs.io/en/latest/) : UI monitor celery tasks 
+* [Flask](http://flask.palletsprojects.com/en/1.1.x/) : python light web framework, as project backend server here  
+* [Docker](https://www.docker.com/get-started) : build the app environment 
+
 
 ### Todo 
 <details>
