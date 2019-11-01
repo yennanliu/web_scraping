@@ -1,9 +1,15 @@
-# web_scraping
+<h1 align="center">WEB SCRAPING</a></h1>
 
-Collection of scrapper pipelines build for different purposes 
+<h4 align="center">Collection of scrapper pipelines build for different purposes with job queue system design/implementation demo
+</h4>
 
-[![Build Status](https://travis-ci.org/yennanliu/web_scraping.svg?branch=master)](https://travis-ci.org/yennanliu/web_scraping)
-[![PRs](https://img.shields.io/badge/PRs-welcome-6574cd.svg)](https://github.com/yennanliu/web_scraping/pulls)
+
+<p align="center">
+<!--- travis -->
+<a href="https://travis-ci.org/yennanliu/web_scraping"><img src="https://travis-ci.org/yennanliu/web_scraping.svg?branch=master)](https://travis-ci.org/yennanliu/web_scraping"></a>
+<!--- PR -->
+<a href="https://github.com/yennanliu/web_scraping/pulls"><img src="https://img.shields.io/badge/PRs-welcome-6574cd.svg"></a>
+</p>
 
 ### File structure 
 
