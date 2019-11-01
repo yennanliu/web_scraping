@@ -61,8 +61,8 @@ $ cd ~ && cd web_scraping &&  docker-compose -f  docker-compose.yml up
 ```
 
 ### Tech
-* [Celery](http://docs.celeryproject.org/en/latest/getting-started/first-steps-with-celery.html) : parallel/single thread python tasks management tool
-* [Redis](https://redis.io/)  : key-value DB save task darta 
+* [Celery](http://docs.celeryproject.org/en/latest/getting-started/first-steps-with-celery.html) : parallel/single thread python tasks management tool (celery broker/worker)
+* [Redis](https://redis.io/)  : key-value DB save task data 
 * [Flower](https://flower.readthedocs.io/en/latest/) : UI monitor celery tasks 
 * [Flask](http://flask.palletsprojects.com/en/1.1.x/) : python light web framework, as project backend server here  
 * [Docker](https://www.docker.com/get-started) : build the app environment 
@@ -82,6 +82,7 @@ $ cd ~ && cd web_scraping &&  docker-compose -f  docker-compose.yml up
 5. Design DB model that save scrapping data systematically 
 
 ### Programming level 
+
 1. Add utility scripts that can get XPATH of all objects in html
 2. Workflow that automate whole processes
 3. Job management 
@@ -92,6 +93,7 @@ $ cd ~ && cd web_scraping &&  docker-compose -f  docker-compose.yml up
 5. Scrapy, Phantomjs 
 
 ### Others 
+
 1. Web scrapping 101 tutorial 
 
 ```
