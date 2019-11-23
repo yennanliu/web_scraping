@@ -1,5 +1,6 @@
 import sys
 sys.path.append(".")
+from bs4 import BeautifulSoup
 from celery_queue.IndeedScrapper.indeed_extract import (get_soup as get_soup_,
                                                         extract_company as extract_company_)
 
