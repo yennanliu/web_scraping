@@ -11,10 +11,12 @@ notifications:
     recipients:
       - f339339@gmail.com
 script:
-  - echo ' ----------------- STEP 1)  ----------------- '
-  #- docker build -t web_scraping_env . && docker run -it web_scraping_env /bin/bash -c "python cron_test.py && bash travis_push_github.sh"
+  - echo ' ----------------- STEP 0) UNIT TEST  ----------------- '
+  - pytest -v tests 
+  - echo ' ----------------- STEP 1) INDEED SCRAPING ----------------- '
   - python cron_indeed_scrapping_test.py
   - ls output && ls logs  && cat logs/log.txt 
+  #- docker build -t web_scraping_env . && docker run -it web_scraping_env /bin/bash -c "python cron_test.py && bash travis_push_github.sh"
 after_success:
   - echo 'push scraped file to slack...' && current_date=$(date +'%Y-%m-%d') && for file_name in $(ls output/*.csv) ;  do  echo $file_name $slack_channel &&  bash slack_push.sh -f $file_name -c $slack_channel -s $slack_token  -n "TRAVIS SLACK PUSH" -x " >>>> INDEED SCRAPING REPORT  $file_name" ; done
 
