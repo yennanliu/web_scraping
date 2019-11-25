@@ -19,7 +19,7 @@ script:
   #- docker build -t web_scraping_env . && docker run -it web_scraping_env /bin/bash -c "python cron_test.py && bash travis_push_github.sh"
 after_success:
   - echo 'push scraped file to slack...' && current_date=$(date +'%Y-%m-%d') && for file_name in $(ls output/*.csv) ;  do  echo $file_name $slack_channel &&  bash slack_push.sh -f $file_name -c $slack_channel -s $slack_token  -n "TRAVIS SLACK PUSH" -x " >>>> INDEED SCRAPING REPORT  $file_name" ; done
-  - echo 'push LOG to slack...' && current_date=$(date +'%Y-%m-%d') &&  bash slack_push.sh -f indeed_task.log -c web_scraping_log -s $slack_token  -n "INDEED TASK LOG PUSH" -x "
+  - echo 'push LOG to slack...' && bash slack_push.sh -f indeed_task.log -c web_scraping_log -s $slack_token 
 
 
 # deploy:
