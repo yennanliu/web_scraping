@@ -15,61 +15,36 @@ from celery_queue.IndeedScrapper.indeed_extract import (get_soup as get_soup_,
                                                         get_full_job_link as get_full_job_link_)
 
 
-html = """
-    <table>
-        <tr>
-            <td class="image">
-               <a href="/target/tt0111161/" title="Target Text 1">
-                <img alt="target img" height="74" src="img src url" title="image title" width="54"/>
-               </a>
-              </td>
-              <td class="title">
-               <span class="company" data-caller-name="search" data-size="small" data-tconst="tt0111161">
-               </span>
-               <a href="/target/tt0111161/">
-                Other Text
-               </a>
-               <span class="year_type">
-                (2013)
-               </span>
-            </td>
-        </tr>
-    </table>
-    """
+with open('tests/unittest_data.txt', 'r') as file:
+  html = file.read()
 
-def test_get_html():
-    soup = BeautifulSoup(html)
-    r = soup.find_all(name="span", attrs={"class":"company"})
-    assert str(r) == '[<span class="company" data-caller-name="search" data-size="small" data-tconst="tt0111161">\n</span>]'
+# def test_get_html():
+#     soup = BeautifulSoup(html)
+#     r = soup.find_all(name="span", attrs={"class":"company"})
+#     assert str(r) == '[<span class="company" data-caller-name="search" data-size="small" data-tconst="tt0111161">\n</span>]'
 
-def test_get_soup():
-    text = """<p>Here's a paragraph of text!</p>"""
-    result = get_soup_(text)
-    assert result.text.strip() == "Here's a paragraph of text!"
-
+# def test_get_soup():
+#     text = """<p>Here's a paragraph of text!</p>"""
+#     result = get_soup_(text)
+#     assert result.text.strip() == "Here's a paragraph of text!"
 
 def test_extract_company():
-    text = '<div class="row"><a class="result-link-source">google</a></div>'
-    soup = BeautifulSoup(text)
+    expected = '\\n\\nU3 INFOTECH PTE. LTD.'
+    soup = BeautifulSoup(html)
     result = extract_company_(soup)
-    # todo : add modified html to test extract company method
-    assert result == 'NOT_FOUND'
-
+    assert result == expected
 
 def test_extract_salary():
-    text = '<div class="row"><a class="result-link-source">google</a></div>'
-    soup = BeautifulSoup(text)
-    result = extract_company_(soup)
-    # todo : add modified html to test extract company method
-    assert result == 'NOT_FOUND'
-
+    expected = 'NOT_FOUND'
+    soup = BeautifulSoup(html)
+    result = extract_salary_(soup)
+    assert result == expected
 
 def test_extract_location():
-    text = '<div class="row"><a class="result-link-source">google</a></div>'
-    soup = BeautifulSoup(text)
-    result = extract_company_(soup)
-    # todo : add modified html to test extract company method
-    assert result == 'NOT_FOUND'
+    expected= 'Shenton Way'
+    soup = BeautifulSoup(html)
+    result = extract_location_(soup)
+    assert result == expected
 
 if __name__ == '__main__':
     pytest.main([__file__])
