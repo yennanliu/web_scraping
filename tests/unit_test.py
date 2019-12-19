@@ -18,15 +18,10 @@ from celery_queue.IndeedScrapper.indeed_extract import (get_soup as get_soup_,
 with open('tests/unittest_data.txt', 'r') as file:
   html = file.read()
 
-# def test_get_html():
-#     soup = BeautifulSoup(html)
-#     r = soup.find_all(name="span", attrs={"class":"company"})
-#     assert str(r) == '[<span class="company" data-caller-name="search" data-size="small" data-tconst="tt0111161">\n</span>]'
-
-# def test_get_soup():
-#     text = """<p>Here's a paragraph of text!</p>"""
-#     result = get_soup_(text)
-#     assert result.text.strip() == "Here's a paragraph of text!"
+def test_get_soup():
+    text = """<p>Here's a paragraph of text!</p>"""
+    result = get_soup_(text)
+    assert result.text.strip() == "Here's a paragraph of text!"
 
 def test_extract_company():
     expected = '\\n\\nU3 INFOTECH PTE. LTD.'
