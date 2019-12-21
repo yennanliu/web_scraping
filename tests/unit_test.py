@@ -41,5 +41,30 @@ def test_extract_location():
     result = extract_location_(soup)
     assert result == expected
 
+def test_extract_job_title():
+    expected= 'NOT_FOUND'
+    soup = BeautifulSoup(html)
+    result = extract_job_title_(soup)
+    assert result == expected
+
+def test_extract_summary():
+    expected= 'NOT_FOUND'
+    soup = BeautifulSoup(html)
+    result = extract_summary_(soup)
+    assert result == expected
+
+def test_extract_link():
+    expected= 'NOT_FOUND'
+    soup = BeautifulSoup(html)
+    result = extract_link_(soup)
+    assert result == expected
+
+def test_extract_date():
+    expected= '1 day ago'
+    soup = BeautifulSoup(html)
+    result = extract_date_(soup)
+    assert result == expected
+
+
 if __name__ == '__main__':
     pytest.main([__file__])
