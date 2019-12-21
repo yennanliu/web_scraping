@@ -65,6 +65,20 @@ def test_extract_date():
     result = extract_date_(soup)
     assert result == expected
 
+def test_extract_fulltext():
+    expected= 'NOT_FOUND'
+    soup = BeautifulSoup(html)
+    result = extract_fulltext_(soup)
+    assert result == expected
+
+def test_get_full_job_link_():
+    expected1 = 'https://www.indeed.com.sg/123'
+    expected2 = 'https://jp.indeed.com/123'
+    result1 = get_full_job_link_("123", city='Singapore')
+    result2 = get_full_job_link_("123", city='Tokyo')
+    assert result1 == expected1
+    assert result2 == expected2
+
 
 if __name__ == '__main__':
     pytest.main([__file__])
