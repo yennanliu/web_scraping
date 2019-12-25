@@ -13,6 +13,10 @@ celery = Celery('tasks', broker=CELERY_BROKER_URL, backend=CELERY_RESULT_BACKEND
 def add(x, y):
     return x+y
 
+@celery.task(name="task.multiply")
+def multiply(x, y):
+    return x*y
+
 @celery.task(name='tasks.scrap_task')
 def scrape():
     url = 'https://github.com/apache/spark'
