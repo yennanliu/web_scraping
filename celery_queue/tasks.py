@@ -9,6 +9,10 @@ CELERY_BROKER_URL = os.environ.get('CELERY_BROKER_URL', 'redis://localhost:6379'
 CELERY_RESULT_BACKEND = os.environ.get('CELERY_RESULT_BACKEND', 'redis://localhost:6379')
 celery = Celery('tasks', broker=CELERY_BROKER_URL, backend=CELERY_RESULT_BACKEND)
 
+@celery.task(name="task.add")
+def add(x, y):
+    return x+y
+
 @celery.task(name='tasks.scrap_task')
 def scrape():
     url = 'https://github.com/apache/spark'
@@ -25,7 +29,7 @@ def indeed_scrape():
     from IndeedScrapper.indeed_scrapper import Scrape_Runner
     Scrape_Runner()
 
-@celery.task(name='tasks.indeed_scrap_task_api')
+@celery.task(name='tasks.indeed_scrap_api_V1')
 def indeed_scrape_api(city_set):
     sys.path.append("..")
     from IndeedScrapper.indeed_scrapper import Scrape_Runner
