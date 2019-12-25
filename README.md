@@ -71,7 +71,6 @@ $ pytest -v tests/
 # rootdir: /Users/jerryliu/web_scraping
 # plugins: cov-2.7.1, celery-4.3.0
 # collected 10 items                                                                      
-
 # tests/unit_test.py::test_get_soup PASSED                                          [ 10%]
 # tests/unit_test.py::test_extract_company PASSED                                   [ 20%]
 # tests/unit_test.py::test_extract_salary PASSED                                    [ 30%]
@@ -83,17 +82,14 @@ $ pytest -v tests/
 # tests/unit_test.py::test_extract_fulltext PASSED                                  [ 90%]
 # tests/unit_test.py::test_get_full_job_link_ PASSED                                [100%]
 
-
 # Run Unit test # 2 
 python tests/unit_test_celery.py  -v
 # test_addition (__main__.TestAddTask) ... ok
 # test_task_state (__main__.TestAddTask) ... ok
 # test_multiplication (__main__.TestMultiplyTask) ... ok
 # test_task_state (__main__.TestMultiplyTask) ... ok
-
 # ----------------------------------------------------------------------
 # Ran 4 tests in 0.131s
-
 # OK
 
 ```
