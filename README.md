@@ -60,6 +60,44 @@ $ cd ~ && cd web_scraping &&  docker-compose -f  docker-compose.yml up
 
 ```
 
+### Development
+
+```bash
+# Run Unit test # 1 
+$ pytest -v tests/
+# ================================== test session starts ==================================
+# platform darwin -- Python 3.6.4, pytest-5.0.1, py-1.5.2, pluggy-0.12.0 -- /Users/jerryliu/anaconda3/envs/yen_dev/bin/python
+# cachedir: .pytest_cache
+# rootdir: /Users/jerryliu/web_scraping
+# plugins: cov-2.7.1, celery-4.3.0
+# collected 10 items                                                                      
+
+# tests/unit_test.py::test_get_soup PASSED                                          [ 10%]
+# tests/unit_test.py::test_extract_company PASSED                                   [ 20%]
+# tests/unit_test.py::test_extract_salary PASSED                                    [ 30%]
+# tests/unit_test.py::test_extract_location PASSED                                  [ 40%]
+# tests/unit_test.py::test_extract_job_title PASSED                                 [ 50%]
+# tests/unit_test.py::test_extract_summary PASSED                                   [ 60%]
+# tests/unit_test.py::test_extract_link PASSED                                      [ 70%]
+# tests/unit_test.py::test_extract_date PASSED                                      [ 80%]
+# tests/unit_test.py::test_extract_fulltext PASSED                                  [ 90%]
+# tests/unit_test.py::test_get_full_job_link_ PASSED                                [100%]
+
+
+# Run Unit test # 2 
+python tests/unit_test_celery.py  -v
+# test_addition (__main__.TestAddTask) ... ok
+# test_task_state (__main__.TestAddTask) ... ok
+# test_multiplication (__main__.TestMultiplyTask) ... ok
+# test_task_state (__main__.TestMultiplyTask) ... ok
+
+# ----------------------------------------------------------------------
+# Ran 4 tests in 0.131s
+
+# OK
+
+```
+
 ### Tech
 * [Celery](http://docs.celeryproject.org/en/latest/getting-started/first-steps-with-celery.html) : parallel/single thread python tasks management tool (celery broker/worker)
 * [Redis](https://redis.io/)  : key-value DB save task data 
@@ -118,7 +156,6 @@ $ cd ~ && cd web_scraping &&  docker-compose -f  docker-compose.yml up
 
 - Distributed scrapping
 	- https://github.com/tikazyq/crawlab
-
 
 - Unit test Celery
 	- https://docs.celeryproject.org/en/latest/userguide/testing.html

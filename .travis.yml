@@ -13,6 +13,7 @@ notifications:
 script:
   - echo ' ----------------- STEP 0) UNIT TEST  ----------------- '
   - pytest -v tests 
+  #- python tests/unit_test_celery.py  -v
   - echo ' ----------------- STEP 1) INDEED SCRAPING ----------------- '
   - python cron_indeed_scrapping_test.py >> indeed_task.log
   - ls output && ls logs  && cat logs/log.txt 
