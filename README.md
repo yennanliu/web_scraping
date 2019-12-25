@@ -118,4 +118,8 @@ $ cd ~ && cd web_scraping &&  docker-compose -f  docker-compose.yml up
 
 - Distributed scrapping
 	- https://github.com/tikazyq/crawlab
+
+
+- Unit test Celery
+	- https://docs.celeryproject.org/en/latest/userguide/testing.html
 </details>
