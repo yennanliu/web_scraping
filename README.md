@@ -54,6 +54,9 @@ curl -X POST   http://localhost:5555/api/task/async-apply/task.scrape_task
 # "indeed_scrap_task" task
 curl -X POST   http://localhost:5555/api/task/async-apply/task.indeed_scrap_task
 
+# "scrape_task_api" task
+curl -X POST -d '{"args":["mlflow","mlflow"]}' http://localhost:5555/api/task/async-apply/task.scrape_task_api
+
 ```
 </details>
 
