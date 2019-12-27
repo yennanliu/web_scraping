@@ -29,8 +29,8 @@ def scrape():
 
 @celery.task(name='task.scrape_task_api')
 def scrape_github_api(account, repo_name):
-    url = 'https://github.com//'.format(account, repo_name)
-    print (url)
+    url = 'https://github.com/{}/{}'.format(account, repo_name)
+    print ("*** url", url)
     opener=request.build_opener()
     opener.addheaders = [('User-agent', 'Mozilla/5.0')]
     page = opener.open(url)
