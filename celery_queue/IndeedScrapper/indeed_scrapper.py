@@ -5,7 +5,7 @@ import time
 import datetime
 from IndeedScrapper.indeed_extract import *
 
-def Scrape_Runner(city_set=['New+York'], job_set=['data+scientist'], max_results_per_city=10, file=1, SKIPPER=0):
+def Scrape_Runner(city_set=['New+York'], job_set=['data+scientist'], max_results_per_city=200, file=1, SKIPPER=0):
 
     # current date 
     current_time, current_date  = datetime.datetime.now().strftime('%Y-%m-%d-%H:%M:%S'), datetime.datetime.now().strftime('%Y-%m-%d')
@@ -95,6 +95,8 @@ def Scrape_Runner(city_set=['New+York'], job_set=['data+scientist'], max_results
 
                 #saving df as a local csv file 
                 df.to_csv('output/{}_jobs_'.format(current_date) + str(file) + '.csv', encoding='utf-8')
+                print (df.head(3))
+                print ("len(df)", len(df))
             
             else:
 
@@ -103,3 +105,4 @@ def Scrape_Runner(city_set=['New+York'], job_set=['data+scientist'], max_results
             
             # increment file
             file = file + 1
+
