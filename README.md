@@ -29,14 +29,22 @@ $ cd ~ && cd web_scraping &&  docker-compose -f  docker-compose.yml up
 ```bash
 # Run manually 
 
-# STEP 1)
-# open one terminal and run celery server locally 
+# STEP 1) open one terminal and run celery server locally 
 $ cd ~ && cd web_scraping/celery_queue
 $ celery -A tasks worker --loglevel=info
 
-# STEP 2) run radis server locally 
+# STEP 2) Run radis server locally (with the other terminal)
 # make sure you have already installed radis
 $ redis-server
+
+# STEP 3) Run flower  (with the other terminal)
+$ cd ~ && cd web_scraping/celery_queue
+$ celery flower -A tasks --address=127.0.0.1 --port=5555
+
+# STEP 4) Add a sample task 
+# add task
+$ curl -X POST -d '{"args":[1,2]}' http://localhost:5555/api/task/async-apply/task.add
+
 ```
 </details>
 
