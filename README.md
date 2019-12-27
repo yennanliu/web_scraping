@@ -51,6 +51,9 @@ curl -X POST -d '{"args":[3,5]}' http://localhost:5555/api/task/async-apply/task
 # "scrape_task" task
 curl -X POST   http://localhost:5555/api/task/async-apply/task.scrape_task
 
+# "indeed_scrap_task" task
+curl -X POST   http://localhost:5555/api/task/async-apply/task.indeed_scrap_task
+
 ```
 </details>
 
