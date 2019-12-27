@@ -40,13 +40,13 @@ def scrape_github_api(account, repo_name):
 
 @celery.task(name='task.indeed_scrap_task')
 def indeed_scrape():
-    sys.path.append("..")
+    sys.path.append(".")
     from IndeedScrapper.indeed_scrapper import Scrape_Runner
     Scrape_Runner()
 
 @celery.task(name='task.indeed_scrap_api_V1')
 def indeed_scrape_api(city_set):
-    sys.path.append("..")
+    sys.path.append(".")
     from IndeedScrapper.indeed_scrapper import Scrape_Runner
     Scrape_Runner(city_set)
     
