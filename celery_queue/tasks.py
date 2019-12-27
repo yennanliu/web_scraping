@@ -17,7 +17,7 @@ def add(x, y):
 def multiply(x, y):
     return x*y
 
-@celery.task(name='tasks.scrap_task')
+@celery.task(name='task.scrape_task')
 def scrape():
     url = 'https://github.com/apache/spark'
     opener=request.build_opener()
@@ -27,13 +27,24 @@ def scrape():
     print (soup.text)
     return soup.text
 
-@celery.task(name='tasks.indeed_scrap_task')
+@celery.task(name='task.scrape_task_api')
+def scrape_github_api(account, repo_name):
+    url = 'https://github.com//'.format(account, repo_name)
+    print (url)
+    opener=request.build_opener()
+    opener.addheaders = [('User-agent', 'Mozilla/5.0')]
+    page = opener.open(url)
+    soup = BeautifulSoup(page)
+    print (soup.text)
+    return soup.text
+
+@celery.task(name='task.indeed_scrap_task')
 def indeed_scrape():
     sys.path.append("..")
     from IndeedScrapper.indeed_scrapper import Scrape_Runner
     Scrape_Runner()
 
-@celery.task(name='tasks.indeed_scrap_api_V1')
+@celery.task(name='task.indeed_scrap_api_V1')
 def indeed_scrape_api(city_set):
     sys.path.append("..")
     from IndeedScrapper.indeed_scrapper import Scrape_Runner

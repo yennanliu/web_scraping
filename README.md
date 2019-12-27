@@ -42,8 +42,14 @@ $ cd ~ && cd web_scraping/celery_queue
 $ celery flower -A tasks --address=127.0.0.1 --port=5555
 
 # STEP 4) Add a sample task 
-# add task
+# "add" task
 $ curl -X POST -d '{"args":[1,2]}' http://localhost:5555/api/task/async-apply/task.add
+
+# "multiply" task
+curl -X POST -d '{"args":[3,5]}' http://localhost:5555/api/task/async-apply/task.multiply
+
+# "scrape_task" task
+curl -X POST   http://localhost:5555/api/task/async-apply/task.scrape_task
 
 ```
 </details>
