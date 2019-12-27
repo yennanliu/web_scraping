@@ -5,7 +5,7 @@ import time
 import datetime
 from IndeedScrapper.indeed_extract import *
 
-def Scrape_Runner(city_set=['New+York'], job_set=['data+scientist'], max_results_per_city=200, file=1, SKIPPER=0):
+def Scrape_Runner(city_set=['New+York'], job_set=['data+scientist'], max_results_per_city=50, file=1, SKIPPER=0):
 
     # current date 
     current_time, current_date  = datetime.datetime.now().strftime('%Y-%m-%d-%H:%M:%S'), datetime.datetime.now().strftime('%Y-%m-%d')
@@ -94,7 +94,11 @@ def Scrape_Runner(city_set=['New+York'], job_set=['data+scientist'], max_results
                     write_logs(('Completed =>') + '\t' + city  + '\t' + job_qry + '\t' + str(cnt) + '\t' + str(start) + '\t' + str(time.time() - startTime) + '\t' + ('file_' + str(file)) + '  ' + str(current_time))
 
                 #saving df as a local csv file 
-                df.to_csv('output/{}_jobs_'.format(current_date) + str(file) + '.csv', encoding='utf-8')
+                try:
+                    df.to_csv('output/{}_jobs_'.format(current_date) + str(file) + '.csv', encoding='utf-8')
+                except Exception as e:
+                    print (str(e), "outout not exists, save at current url instead")
+                    df.to_csv('{}_jobs_'.format(current_date) + str(file) + '.csv', encoding='utf-8')
                 print (df.head(3))
                 print ("len(df)", len(df))
             

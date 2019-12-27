@@ -90,7 +90,11 @@ def extract_fulltext(url):
 # write logs to file
 def write_logs(text):
     # print(text + '\n')
-    f = open('logs/log.txt','a')
+    try:
+        f = open('logs/log.txt','a')
+    except Exception as e:
+        print (str(e), "logs directory not exists, save at current url instead")
+        f = open('log.txt', 'a')
     f.write(text + '\n')  
     f.close()
 
