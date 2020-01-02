@@ -1,6 +1,7 @@
 import unittest
 import sys
 sys.path.append(".")
+sys.path.append("./celery_queue")
 import pytest
 from unittest.mock import patch
 from unittest import TestCase
@@ -15,9 +16,11 @@ from celery_queue import tasks
 # - https://www.distributedpython.com/2018/05/15/testing-celery-chains/
 # - https://www.distributedpython.com/2018/05/01/unit-testing-celery-tasks/
 # - http://docs.celeryproject.org/en/latest/userguide/testing.html
+
 class TestAddTask(unittest.TestCase):
 
     def test_task_state_and_addition(self):
+
         task = tasks.add.apply(args=[3, 5])
         self.assertEqual(task.status, "SUCCESS")
         self.assertEqual(task.result, 8)
@@ -25,6 +28,7 @@ class TestAddTask(unittest.TestCase):
 class TestMultiplyTask(unittest.TestCase):
 
     def test_task_state_and_multiply(self):
+
         task = tasks.multiply.apply(args=[3, 5])
         self.assertEqual(task.status, "SUCCESS")
         self.assertEqual(task.result, 15)
@@ -32,10 +36,19 @@ class TestMultiplyTask(unittest.TestCase):
 class TestScrapeTask(unittest.TestCase):
 
     def test_task_state_and_scrape(self):
+        
         task = tasks.scrape.apply()
         self.assertEqual(task.status, "SUCCESS")
         self.assertEqual(type(task.result), str)
 
+
+class TestIndeedScrapTask(unittest.TestCase):
+
+    def test_task_indeed_scrape(self):
+
+        task = tasks.indeed_scrape.apply()
+        self.assertEqual(task.status, "SUCCESS")
+        self.assertEqual(type(task.result), type(None))
 
 # class TestAddTask(unittest.TestCase):
 #
