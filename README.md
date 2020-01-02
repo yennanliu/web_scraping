@@ -92,6 +92,9 @@ curl -X POST -d '{"args":["New+York"]}' http://localhost:5555/api/task/async-app
 
 ### Development
 
+<details>
+<summary>Development</summary>
+
 ```bash
 # Run Unit test # 1 
 $ pytest -v tests/
@@ -123,6 +126,7 @@ python tests/unit_test_celery.py  -v
 # OK
 
 ```
+</details>
 
 ### Tech
 * [Celery](http://docs.celeryproject.org/en/latest/getting-started/first-steps-with-celery.html) : parallel/single thread python tasks management tool (celery broker/worker)
