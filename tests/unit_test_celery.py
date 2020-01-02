@@ -7,10 +7,6 @@ from unittest.mock import patch
 from unittest import TestCase
 from celery import chain
 from celery_queue import tasks
-# from celery_queue.tasks import (celery, 
-#                                 add, 
-#                                 multiply, 
-#                                 scrape)
 
 # Ref of celery mock unit test
 # - https://www.distributedpython.com/2018/05/15/testing-celery-chains/
@@ -36,11 +32,10 @@ class TestMultiplyTask(unittest.TestCase):
 class TestScrapeTask(unittest.TestCase):
 
     def test_task_state_and_scrape(self):
-        
+
         task = tasks.scrape.apply()
         self.assertEqual(task.status, "SUCCESS")
         self.assertEqual(type(task.result), str)
-
 
 class TestIndeedScrapTask(unittest.TestCase):
 
@@ -49,6 +44,15 @@ class TestIndeedScrapTask(unittest.TestCase):
         task = tasks.indeed_scrape.apply()
         self.assertEqual(task.status, "SUCCESS")
         self.assertEqual(type(task.result), type(None))
+
+class TestIndeedScrapAPITask(unittest.TestCase):
+
+    def test_task_indeed_scrape_api(self):
+
+        task = tasks.indeed_scrape_api.apply(args=["Tokyo"])
+        self.assertEqual(task.status, "SUCCESS")
+        self.assertEqual(type(task.result), type(None))
+
 
 # class TestAddTask(unittest.TestCase):
 #
