@@ -43,22 +43,22 @@ $ celery flower -A tasks --address=127.0.0.1 --port=5555
 
 # STEP 4) Add a sample task 
 # "add" task
-$ curl -X POST -d '{"args":[1,2]}' http://localhost:5555/api/task/async-apply/task.add
+$ curl -X POST -d '{"args":[1,2]}' http://localhost:5555/api/task/async-apply/tasks.add
 
 # "multiply" task
-curl -X POST -d '{"args":[3,5]}' http://localhost:5555/api/task/async-apply/task.multiply
+$ curl -X POST -d '{"args":[3,5]}' http://localhost:5555/api/task/async-apply/tasks.multiply
 
 # "scrape_task" task
-curl -X POST   http://localhost:5555/api/task/async-apply/task.scrape_task
-
-# "indeed_scrap_task" task
-curl -X POST   http://localhost:5555/api/task/async-apply/task.indeed_scrap_task
+$ curl -X POST   http://localhost:5555/api/task/async-apply/tasks.scrape_task
 
 # "scrape_task_api" task
-curl -X POST -d '{"args":["mlflow","mlflow"]}' http://localhost:5555/api/task/async-apply/task.scrape_task_api
+$ curl -X POST -d '{"args":["mlflow","mlflow"]}' http://localhost:5555/api/task/async-apply/tasks.scrape_task_api
+
+# "indeed_scrap_task" task
+$ curl -X POST  http://localhost:5555/api/task/async-apply/tasks.indeed_scrap_task
 
 # "indeed_scrap_api_V1" task
-curl -X POST -d '{"args":["New+York"]}' http://localhost:5555/api/task/async-apply/task.indeed_scrap_api_V1
+$ curl -X POST -d '{"args":["New+York"]}' http://localhost:5555/api/task/async-apply/tasks.indeed_scrap_api_V1
 
 ```
 </details>
