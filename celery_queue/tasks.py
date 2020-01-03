@@ -9,15 +9,15 @@ CELERY_BROKER_URL = os.environ.get('CELERY_BROKER_URL', 'redis://localhost:6379'
 CELERY_RESULT_BACKEND = os.environ.get('CELERY_RESULT_BACKEND', 'redis://localhost:6379')
 celery = Celery('tasks', broker=CELERY_BROKER_URL, backend=CELERY_RESULT_BACKEND)
 
-@celery.task(name="task.add")
+@celery.task(name="tasks.add")
 def add(x, y):
     return x+y
 
-@celery.task(name="task.multiply")
+@celery.task(name="tasks.multiply")
 def multiply(x, y):
     return x*y
 
-@celery.task(name='task.scrape_task')
+@celery.task(name='tasks.scrape_task')
 def scrape():
     url = 'https://github.com/apache/spark'
     opener=request.build_opener()
@@ -27,7 +27,7 @@ def scrape():
     print (soup.text)
     return soup.text
 
-@celery.task(name='task.scrape_task_api')
+@celery.task(name='tasks.scrape_task_api')
 def scrape_github_api(account, repo_name):
     url = 'https://github.com/{}/{}'.format(account, repo_name)
     print ("*** url", url)
@@ -38,13 +38,13 @@ def scrape_github_api(account, repo_name):
     print (soup.text)
     return soup.text
 
-@celery.task(name='task.indeed_scrap_task')
+@celery.task(name='tasks.indeed_scrap_task')
 def indeed_scrape():
     sys.path.append(".")
     from IndeedScrapper.indeed_scrapper import Scrape_Runner
     Scrape_Runner()
 
-@celery.task(name='task.indeed_scrap_api_V1')
+@celery.task(name='tasks.indeed_scrap_api_V1')
 def indeed_scrape_api(city_set):
     sys.path.append(".")
     from IndeedScrapper.indeed_scrapper import Scrape_Runner
