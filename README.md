@@ -8,6 +8,7 @@ Collection of scrapper pipelines build for different purposes
 
 ### Architecture
 <p align="center"><img src ="https://github.com/yennanliu/web_scraping/blob/master/doc/pic/architecture.svg" width="800" height="400"></p>
+<p align="center"><img src ="https://github.com/yennanliu/web_scraping/blob/master/doc/pic/celery.svg" width="800" height="400"></p>
 
 - Architecture idea
 - Asynchronous tasks 
