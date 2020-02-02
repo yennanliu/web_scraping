@@ -5,6 +5,7 @@ from datetime import timedelta
 import urllib.request as request
 from bs4 import BeautifulSoup
 from celery import Celery
+from celery.schedules import crontab
 from celery.task.base import periodic_task
 
 CELERY_BROKER_URL = os.environ.get('CELERY_BROKER_URL', 'redis://localhost:6379'),
@@ -19,10 +20,10 @@ def add(x, y):
 def multiply(x, y):
     return x*y
 
-@periodic_task(run_every=timedelta(seconds=60))
-def push_heart_beat(x, y):
+@periodic_task(run_every=(crontab(minute='*')),name="run_every_minute",ignore_result=True)
+def push_heart_beat():
+    print ("this is heart beat")
     return "this is heart beat"
-
 
 @celery.task(name='tasks.scrape_task')
 def scrape():

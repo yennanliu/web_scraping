@@ -31,7 +31,10 @@ $ cd ~ && cd web_scraping &&  docker-compose -f  docker-compose.yml up
 
 # STEP 1) open one terminal and run celery server locally 
 $ cd ~ && cd web_scraping/celery_queue
+# run task from API call  
 $ celery -A tasks worker --loglevel=info
+# run cron (periodic) task 
+$ celery -A tasks beat
 
 # STEP 2) Run radis server locally (with the other terminal)
 # make sure you have already installed radis
