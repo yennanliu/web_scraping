@@ -172,6 +172,7 @@ python tests/unit_test_celery.py  -v
 <summary>Ref</summary>
 - Scraping via Celery
 	- https://www.pythoncircle.com/post/518/scraping-10000-tweets-in-60-seconds-using-celery-rabbitmq-and-docker-cluster-with-rotating-proxy/
+	- http://allynh.com/blog/flask-asynchronous-background-tasks-with-celery-and-redis/
 
 - Travis push to github 
 	- https://stackoverflow.com/questions/51925941/travis-ci-how-to-push-to-master-branch

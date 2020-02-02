@@ -1,0 +1,10 @@
+Completed =>	New+York	data+scientist	10	0	2.892832040786743	file_1  2020-02-02-18:29:30
+Completed =>	New+York	data+scientist	20	10	5.695845127105713	file_1  2020-02-02-18:29:30
+Completed =>	New+York	data+scientist	30	20	8.427727222442627	file_1  2020-02-02-18:29:30
+Completed =>	New+York	data+scientist	40	30	11.270271062850952	file_1  2020-02-02-18:29:30
+Completed =>	New+York	data+scientist	50	40	15.064821004867554	file_1  2020-02-02-18:29:30
+Completed =>	+	data+scientist	10	0	3.3448691368103027	file_4  2020-02-02-18:29:35
+Completed =>	+	data+scientist	20	10	6.482846021652222	file_4  2020-02-02-18:29:35
+Completed =>	+	data+scientist	30	20	9.563256978988647	file_4  2020-02-02-18:29:35
+Completed =>	+	data+scientist	40	30	12.740447044372559	file_4  2020-02-02-18:29:35
+Completed =>	+	data+scientist	50	40	15.74568486213684	file_4  2020-02-02-18:29:35

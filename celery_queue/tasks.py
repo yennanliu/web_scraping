@@ -1,9 +1,11 @@
 import os
 import time
+import sys
+from datetime import timedelta
 import urllib.request as request
 from bs4 import BeautifulSoup
 from celery import Celery
-import sys
+from celery.task.base import periodic_task
 
 CELERY_BROKER_URL = os.environ.get('CELERY_BROKER_URL', 'redis://localhost:6379'),
 CELERY_RESULT_BACKEND = os.environ.get('CELERY_RESULT_BACKEND', 'redis://localhost:6379')
@@ -16,6 +18,11 @@ def add(x, y):
 @celery.task(name="tasks.multiply")
 def multiply(x, y):
     return x*y
+
+@periodic_task(run_every=timedelta(seconds=60))
+def push_heart_beat(x, y):
+    return "this is heart beat"
+
 
 @celery.task(name='tasks.scrape_task')
 def scrape():
