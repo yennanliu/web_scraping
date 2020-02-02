@@ -7,7 +7,7 @@ Collection of scrapper pipelines build for different purposes
 
 
 ### Architecture
-
+<p align="center"><img src ="https://github.com/yennanliu/web_scraping/blob/master/doc/pic/architecture.svg" width="800" height="400"></p>
 
 - Architecture idea
 - Asynchronous tasks 
@@ -182,6 +182,7 @@ python tests/unit_test_celery.py  -v
 ### Ref 
 <details>
 <summary>Ref</summary>
+
 - Scraping via Celery
 	- https://www.pythoncircle.com/post/518/scraping-10000-tweets-in-60-seconds-using-celery-rabbitmq-and-docker-cluster-with-rotating-proxy/
 	- http://allynh.com/blog/flask-asynchronous-background-tasks-with-celery-and-redis/
