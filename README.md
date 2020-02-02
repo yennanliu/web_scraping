@@ -6,6 +6,15 @@ Collection of scrapper pipelines build for different purposes
 [![PRs](https://img.shields.io/badge/PRs-welcome-6574cd.svg)](https://github.com/yennanliu/web_scraping/pulls)
 
 
+### Architecture
+
+
+- Architecture idea
+- Asynchronous tasks 
+	- Celery client : `flask` <---> `Celery client` <---> `Celery worker`. Be connected to flask to the celery task, issue the commands for the tasks
+	- Celery worker : A process that runs tasks in background, can be a `schedulued`task (periodic task), and a `asynchronous` (when API call) one.
+	- Massage broker : `Celery client` <--Massage broker-> `Celery worker`. The Celery client will need to via Message worker to communicate with Celery worker. Here I use `Redis` as the Message broker.
+
 ### Quick Start
 <details>
 <summary>Quick start via docker</summary>
