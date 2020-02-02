@@ -6,3 +6,5 @@
 .ipynb_checkpoints
 Indeed_scrapper_nb_V1.ipynb
 logs/log.txt
+celery_queue/celerybeat-schedule.db
+celery_queue/celerybeat.pid
