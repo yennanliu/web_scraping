@@ -31,3 +31,6 @@ jobs:
     - name: Test with pytest
       run: |
         pytest
+    - name: Run indeed scrapping test
+      run: |
+        python cron_indeed_scrapping_test.py
