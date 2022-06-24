@@ -124,6 +124,8 @@ for city in city_set:
             if not os.path.exists(output_dir):
                 os.mkdir(output_dir)
             df = df.sort_values('date') # sort the df by job post date
+            # for QA only
+            print (df.head(10))
             df.to_csv('output/{}_jobs_{}_{}'.format(current_date, str(city).replace('+','_'), str(job_qry).replace('+','_'))  + '.csv', encoding='utf-8')
         
         else:
