@@ -9,7 +9,7 @@ Jinja2>=2.10.1
 kombu==4.2.0
 MarkupSafe==1.0
 pytz==2018.3
-redis==2.10.6
+redis==4.4.4
 tornado==5.0.2
 vine==1.1.4
 Werkzeug>=0.15.3
