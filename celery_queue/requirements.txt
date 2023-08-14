@@ -6,7 +6,7 @@ flower==1.2.0
 kombu==4.2.0
 pytz==2018.3
 redis==4.4.4
-tornado==5.0.2
+tornado==6.3.3
 vine==1.1.4
 beautifulsoup4
 requests
